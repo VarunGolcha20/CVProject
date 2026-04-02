@@ -49,7 +49,7 @@ class PoseCNN(nn.Module):
         self.drop  = nn.Dropout(dropout)
 
         # Also accept the 17-dim feature vector as additional input
-        self.fc_feat = nn.Linear(17, 64)
+        self.fc_feat = nn.Linear(16, 64)
 
         self.fc1 = nn.Linear(256 + 64, 128)
         self.fc2 = nn.Linear(128, num_classes)
@@ -230,3 +230,51 @@ def collect_samples(label: str, pose_frame, fv: FeatureVector,
         landmarks=lm_arr,
         features=fv.to_array(),
         label=np.array(idx))
+if __name__ == "__main__":
+    import numpy as np
+    import torch
+    from pathlib import Path
+    from classifiers.cnn_classifier import PoseCNN, NUM_CLASSES, IDX2GESTURE
+
+    # 1. Load one sample
+    data_dir = Path("data/cnn")
+    files = list(data_dir.glob("*.npz"))
+
+    assert files, "❌ No .npz files found in data/cnn"
+
+    sample_file = files[0]
+    data = np.load(sample_file)
+
+    landmarks = data["landmarks"]   # (10, 4)
+    features  = data["features"]    # (16,)
+    label     = int(data["label"])
+
+    print(f"Loaded file: {sample_file}")
+    print(f"Landmarks shape: {landmarks.shape}")
+    print(f"Features shape: {features.shape}")
+    print(f"Label: {label}")
+
+    # 2. Create model
+    model = PoseCNN(num_classes=NUM_CLASSES)
+
+    # (Optional) load trained weights
+    # model.load_state_dict(torch.load("models/cnn_gesture.pt"))
+    model.eval()
+
+    # 3. Convert to tensor
+    lm = torch.from_numpy(landmarks).float().unsqueeze(0)  # (1, 10, 4)
+    ft = torch.from_numpy(features).float().unsqueeze(0)   # (1, 16)
+
+    # 4. Forward pass
+    output = model(lm, ft)
+
+    print("\n--- CNN Real Data Check ---")
+    print(f"Output Shape: {output.shape} (Should be [1, {NUM_CLASSES}])")
+    print(f"Logits: {output.detach().numpy()}")
+
+    pred = output.argmax(dim=1).item()
+    print(f"Predicted class index: {pred}")
+    print(f"Ground truth index: {label}")
+    print(f"Predicted gesture: {IDX2GESTURE[pred]}")
+
+    print("✅ CNN model + data pipeline is working!")

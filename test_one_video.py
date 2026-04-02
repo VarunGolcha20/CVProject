@@ -60,7 +60,7 @@ def test(video_path: str, preview: bool = False):
     lstm_buffer = deque(maxlen=LSTM_WINDOW)
 
     # Output dirs (test mode — saves to data/test/)
-    from pathlib import Path
+    # from pathlib import Path
     cnn_dir  = Path("data/test/cnn");  cnn_dir.mkdir(parents=True, exist_ok=True)
     lstm_dir = Path("data/test/lstm"); lstm_dir.mkdir(parents=True, exist_ok=True)
 
@@ -200,14 +200,16 @@ def test(video_path: str, preview: bool = False):
     test_cnn = list(Path("data/test/cnn").glob("*.npz"))
     if test_cnn:
         d = np.load(test_cnn[0])
+        print(f"DEBUG: Feature shape is {d['features'].shape}") 
+        print(f"DEBUG: Features are: {d['features']}")
         assert d["landmarks"].shape == (10, 4), f"Bad landmarks shape: {d['landmarks'].shape}"
-        assert d["features"].shape  == (17,),   f"Bad features shape: {d['features'].shape}"
+        assert d["features"].shape  == (16,),   f"Bad features shape: {d['features'].shape}"
         print(f"  ✓ CNN .npz structure valid  {d['landmarks'].shape} landmarks, {d['features'].shape} features")
 
     test_lstm = list(Path("data/test/lstm").glob("*.npz"))
     if test_lstm:
         d = np.load(test_lstm[0])
-        assert d["sequence"].shape == (LSTM_WINDOW, 17), f"Bad sequence shape: {d['sequence'].shape}"
+        assert d["sequence"].shape == (LSTM_WINDOW, 16), f"Bad sequence shape: {d['sequence'].shape}"
         print(f"  ✓ LSTM .npz structure valid  {d['sequence'].shape} sequence")
 
     print(f"\n{'='*50}")

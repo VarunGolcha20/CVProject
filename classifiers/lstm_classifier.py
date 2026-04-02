@@ -35,7 +35,7 @@ class GestureLSTM(nn.Module):
       - Attention pooling: lets model focus on the key frame of the gesture
         (e.g., the moment of impact in a shoot)
     """
-    def __init__(self, input_dim: int = 17, hidden: int = 128,
+    def __init__(self, input_dim: int = 16, hidden: int = 128,
                  num_layers: int = 2, num_classes: int = NUM_CLASSES,
                  dropout: float = 0.4):
         super().__init__()
@@ -206,3 +206,41 @@ class SequenceRecorder:
         fname = self.out_dir / f"{label}_{int(time.time()*1000)}.npz"
         np.savez_compressed(fname, sequence=seq, label=np.array(idx))
         print(f"Saved {fname}")
+if __name__ == "__main__":
+    import numpy as np
+    from pathlib import Path
+
+    # 1. Load one real sample
+    data_dir = Path("data/lstm")
+    files = list(data_dir.glob("*.npz"))
+
+    assert files, "❌ No .npz files found in data/lstm"
+
+    sample_file = files[0]
+    data = np.load(sample_file)
+
+    sequence = data["sequence"]   # (30, 17)
+    label    = int(data["label"])
+
+    print(f"Loaded file: {sample_file}")
+    print(f"Sequence shape: {sequence.shape}")
+    print(f"Label: {label}")
+
+    # 2. Create model
+    model = GestureLSTM(num_classes=NUM_CLASSES)
+
+    # 3. Convert to tensor
+    x = torch.from_numpy(sequence).float().unsqueeze(0)  # (1, 30, 17)
+
+    # 4. Forward pass
+    output = model(x)
+
+    print("\n--- Real Data Check ---")
+    print(f"Output Shape: {output.shape}")
+    print(f"Logits: {output.detach().numpy()}")
+
+    pred = output.argmax(dim=1).item()
+    print(f"Predicted class: {pred}")
+    print(f"Ground truth: {label}")
+
+    print("✅ Model + data pipeline is working!")
