@@ -1,0 +1,659 @@
+{
+  "counts": {
+    "classifier_disagreement": 2209,
+    "misclassification": 2272,
+    "low_confidence": 266
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466841729.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842160.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842251.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842338.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842415.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842498.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842591.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842666.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842763.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842843.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466842934.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843007.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843082.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843153.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843227.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843303.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843378.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843451.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843537.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843631.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843707.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843781.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843856.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466843931.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844019.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844090.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844161.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844232.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844303.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844383.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844478.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844573.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844662.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844747.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844834.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466844917.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845005.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845088.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845174.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845256.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845359.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845451.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845540.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845631.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845720.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845814.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466845908.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466846001.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466846090.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "PASS",
+      "file": "benchmark/pass_01_failures/fail_1775466846182.jpg"
+    }
+  ]
+}

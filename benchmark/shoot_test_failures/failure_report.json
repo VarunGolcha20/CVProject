@@ -1,0 +1,593 @@
+{
+  "counts": {
+    "classifier_disagreement": 45,
+    "misclassification": 45
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193005.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193389.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193455.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193519.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193593.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193684.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193753.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193827.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193895.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468193965.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194035.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194134.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194209.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194286.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194373.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194450.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194519.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194589.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194661.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194737.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194811.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194886.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468194963.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195032.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195104.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195175.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195242.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195312.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468195373.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196220.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196313.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196395.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196481.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196573.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196658.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196742.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196833.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468196932.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197136.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197350.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197470.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197557.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197643.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197729.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "PASS"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_test_failures/fail_1775468197809.jpg"
+    }
+  ]
+}

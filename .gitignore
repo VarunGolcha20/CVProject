@@ -6,3 +6,8 @@ __pycache__/
 .env
 .vscode/
 .idea/
+*.npz
+.failure_cases/*.jpg
+data/cnn/*.npz
+benchmark/*.png
+benchmark/*.jpg

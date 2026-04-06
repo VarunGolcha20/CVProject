@@ -1,0 +1,17 @@
+{
+  "rule_based": {
+    "mean_latency_ms": 0.00828213342174422,
+    "fps": 120741.83656285504,
+    "accuracy": 0.0
+  },
+  "cnn": {
+    "mean_latency_ms": 1.8113524999231838,
+    "fps": 552.0736576908184,
+    "accuracy": 0.0
+  },
+  "lstm": {
+    "mean_latency_ms": 13.049369366611549,
+    "fps": 76.6320556883481,
+    "accuracy": 0.0
+  }
+}

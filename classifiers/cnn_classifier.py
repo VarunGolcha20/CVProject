@@ -278,3 +278,6 @@ if __name__ == "__main__":
     print(f"Predicted gesture: {IDX2GESTURE[pred]}")
 
     print("✅ CNN model + data pipeline is working!")
+
+    train("data/cnn")
+    

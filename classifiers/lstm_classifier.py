@@ -244,3 +244,5 @@ if __name__ == "__main__":
     print(f"Ground truth: {label}")
 
     print("✅ Model + data pipeline is working!")
+
+    train()

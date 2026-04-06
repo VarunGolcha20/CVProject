@@ -189,10 +189,15 @@ def plot_confusion_matrix(y_true, y_pred, method_name: str,
 def run_benchmark(video_source=0, labels_csv: str = None,
                   use_cnn: bool = False, use_lstm: bool = False):
 
+    video_prefix = Path(video_source).stem if isinstance(video_source, str) else "webcam"
+    output_dir = Path("benchmark")
+    output_dir.mkdir(exist_ok=True)
+    
     cap       = cv2.VideoCapture(video_source)
     extractor = PoseExtractor()
     engineer  = FeatureEngineer(history=30)
-    failure_analyser = FailureAnalyser()
+    failure_analyser = FailureAnalyser(save_dir=f"benchmark/{video_prefix}_failures")
+
 
     # Classifiers
     classifiers = {"rule_based": RuleBasedClassifier()}
@@ -285,14 +290,14 @@ def run_benchmark(video_source=0, labels_csv: str = None,
             print(classification_report(all_truths[:n], preds[:n],
                                         labels=GESTURE_CLASSES, zero_division=0))
             plot_confusion_matrix(all_truths[:n], preds[:n], name,
-                                  save_path=f"confusion_{name}.png")
+                                  save_path=f"benchmark/{video_prefix}_confusion_{name}.png")
 
     failure_analyser.report()
 
     if len(results) > 1:
-        plot_accuracy_vs_latency(results)
+        plot_accuracy_vs_latency(results, save_path=f"benchmark/{video_prefix}_accuracy_vs_latency")
 
-    with open("benchmark_summary.json","w") as f:
+    with open(f"{video_prefix}_benchmark_summary.json","w") as f:
         json.dump(results, f, indent=2)
     print("\nSaved benchmark_summary.json")
     return results

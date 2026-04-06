@@ -1,0 +1,612 @@
+{
+  "counts": {
+    "classifier_disagreement": 1968,
+    "low_confidence": 131
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374262977.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374263432.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374263542.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374263664.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374263778.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374263888.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264000.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264113.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264224.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264337.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264446.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264548.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264647.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264752.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264845.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374264942.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265038.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265144.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "UNCERTAIN",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265254.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "UNCERTAIN",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265362.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265486.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265588.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265691.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265793.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374265898.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374266005.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "UNCERTAIN",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374266109.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374266225.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "PASS",
+        "lstm": "BUFFERING"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374266348.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "UNCERTAIN",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374266576.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267300.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267418.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267544.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267660.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267794.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374267937.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268096.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268215.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268344.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268470.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268584.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268699.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374268887.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269022.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269143.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269253.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269364.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269490.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269626.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "PASS",
+        "lstm": "PASS"
+      },
+      "gt": null,
+      "file": "failure_cases/fail_1775374269746.jpg"
+    }
+  ]
+}

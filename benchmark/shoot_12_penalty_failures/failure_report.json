@@ -1,0 +1,660 @@
+{
+  "counts": {
+    "classifier_disagreement": 104,
+    "misclassification": 104,
+    "low_confidence": 23
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467804878.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805367.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805438.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805528.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805617.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805689.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805768.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805838.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805910.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467805988.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806077.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806161.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806266.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806424.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806522.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806597.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806672.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806746.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806835.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806911.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467806986.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807062.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807142.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807218.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807291.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807376.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807464.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807536.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807611.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807720.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807824.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807908.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467807995.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808092.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808182.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808277.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808371.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808469.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808565.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808666.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808768.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808891.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "DEFEND"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467808994.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809081.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809182.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "DEFEND",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809272.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "UNCERTAIN"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809357.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809461.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809585.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "SHOOT"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_12_penalty_failures/fail_1775467809924.jpg"
+    }
+  ]
+}

@@ -1,0 +1,659 @@
+{
+  "counts": {
+    "classifier_disagreement": 84,
+    "misclassification": 84,
+    "low_confidence": 5
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467828556.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467828952.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829031.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829108.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829184.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829268.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829346.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829437.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829515.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829602.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829681.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829757.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829833.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829910.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467829989.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830067.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830145.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830222.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830300.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830382.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830462.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830546.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830623.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830704.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830785.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830857.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467830937.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831019.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "BUFFERING"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831095.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831187.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831279.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831370.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831455.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831547.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831632.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831724.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831811.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831900.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467831989.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832075.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832164.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832264.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832368.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832473.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832568.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832657.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832744.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832835.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467832941.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "SHOOT",
+        "cnn": "SHOOT",
+        "lstm": "PASS"
+      },
+      "gt": "SHOOT",
+      "file": "benchmark/shoot_13_freekick_failures/fail_1775467833034.jpg"
+    }
+  ]
+}
