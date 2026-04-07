@@ -79,14 +79,21 @@ class VideoProcessor:
     def process_video(self, video_path: str) -> dict:
         label      = parse_label(Path(video_path).name)
         label_idx  = GESTURE2IDX[label]
+
         cap        = cv2.VideoCapture(video_path)
         fps        = cap.get(cv2.CAP_PROP_FPS) or 30
         total_fr   = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        
+        # --- NEW: Get dimensions for saving video clips ---
+        width      = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height     = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
         stats = {"cnn_saved": 0, "lstm_saved": 0, "skipped": 0,
                  "total_frames": total_fr, "label": label}
 
         lstm_buffer: deque = deque(maxlen=LSTM_WINDOW)
+        frame_buffer: deque = deque(maxlen=LSTM_WINDOW)  # --- NEW: Buffer for raw frames ---
+
         frame_num   = 0
         mp_draw     = None
         if self.preview:
@@ -102,6 +109,8 @@ class VideoProcessor:
             ret, frame = cap.read()
             if not ret:
                 break
+                
+            raw_frame = frame.copy()  # --- NEW: Keep a clean copy for saving ---
 
             t = frame_num / fps   # synthetic timestamp from frame number
 
@@ -133,10 +142,16 @@ class VideoProcessor:
                     landmarks = lm_arr,
                     features  = fv.to_array(),
                     label     = np.array(label_idx))
+                
+                # --- NEW: Save the actual CNN frame ---
+                img_fname = self.out_cnn / f"{label}_{Path(video_path).stem}_{frame_num:05d}.jpg"
+                cv2.imwrite(str(img_fname), raw_frame)
+                
                 stats["cnn_saved"] += 1
 
             # ── LSTM sample ───────────────────────────────────────────────────
             lstm_buffer.append(fv.to_array())
+            frame_buffer.append(raw_frame)  
 
             # Save when buffer is full; stride = WINDOW - OVERLAP
             stride = LSTM_WINDOW - OVERLAP
@@ -146,6 +161,15 @@ class VideoProcessor:
                 np.savez_compressed(str(fname),
                     sequence = seq,
                     label    = np.array(label_idx))
+                
+                # --- NEW: Save the LSTM window as a video clip ---
+                vid_fname = self.out_lstm / f"{label}_{Path(video_path).stem}_{frame_num:05d}.mp4"
+                fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+                out_vid = cv2.VideoWriter(str(vid_fname), fourcc, fps, (width, height))
+                for f in frame_buffer:
+                    out_vid.write(f)
+                out_vid.release()
+                
                 stats["lstm_saved"] += 1
 
             # Preview
