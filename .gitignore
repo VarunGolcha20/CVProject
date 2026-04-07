@@ -11,3 +11,4 @@ __pycache__/
 data/cnn/*.npz
 benchmark/*.png
 benchmark/*.jpg
+.temp/
