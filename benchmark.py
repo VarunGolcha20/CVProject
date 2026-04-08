@@ -16,6 +16,7 @@ import argparse
 import time
 import csv
 import numpy as np
+import os
 import json
 import cv2
 from collections import defaultdict
@@ -185,132 +186,132 @@ def plot_confusion_matrix(y_true, y_pred, method_name: str,
     return fig
 
 
-# ── Main benchmark runner ─────────────────────────────────────────────────────
-def run_benchmark(video_source=0, labels_csv: str = None,
+def run_benchmark(video_sources, labels_csv: str = None,
                   use_cnn: bool = False, use_lstm: bool = False):
-
-    video_prefix = Path(video_source).stem if isinstance(video_source, str) else "webcam"
+    """
+    video_sources: List of video paths or a single webcam index
+    """
     output_dir = Path("benchmark")
     output_dir.mkdir(exist_ok=True)
     
-    cap       = cv2.VideoCapture(video_source)
     extractor = PoseExtractor()
     engineer  = FeatureEngineer(history=30)
-    failure_analyser = FailureAnalyser(save_dir=f"benchmark/{video_prefix}_failures")
+    
+    # We use a shared failure analyzer for the whole batch
+    failure_analyser = FailureAnalyser(save_dir="benchmark/batch_failures")
 
-
-    # Classifiers
+    # Classifiers & Benchmarkers
     classifiers = {"rule_based": RuleBasedClassifier()}
     if use_cnn:
-        try:   classifiers["cnn"]  = CNNClassifier()
-        except Exception as e: print(f"CNN not loaded: {e}")
+        try: classifiers["cnn"] = CNNClassifier()
+        except Exception as e: print(f"CNN error: {e}")
     if use_lstm:
-        try:   classifiers["lstm"] = LSTMClassifier()
-        except Exception as e: print(f"LSTM not loaded: {e}")
+        try: classifiers["lstm"] = LSTMClassifier()
+        except Exception as e: print(f"LSTM error: {e}")
 
-    # Benchmarkers (one per classifier)
     benches = {name: Benchmarker() for name in classifiers}
 
-    # Ground truth (optional)
+    # Load Ground Truth (Master CSV logic)
     gt_map = {}
-    if labels_csv:
+    if labels_csv and os.path.exists(labels_csv):
         with open(labels_csv) as f:
             for row in csv.DictReader(f):
                 gt_map[int(row["frame"])] = row["label"]
 
-    # Predictions for metrics
     all_preds  = {name: [] for name in classifiers}
     all_truths = []
-    frame_num  = 0
+    global_frame_num = 0  # <--- Crucial: This stays synced with label_gen.py
 
-    print("Running benchmark — press Q to quit.")
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if not ret: break
-        frame = cv2.flip(frame, 1)
-        t     = time.perf_counter()
+    # Process each video in the list
+    for video_path in video_sources:
+        cap = cv2.VideoCapture(video_path)
+        print(f"\nProcessing: {video_path}")
+        
+        while cap.isOpened():
+            ret, frame = cap.read()
+            if not ret: break
+            
+            frame = cv2.flip(frame, 1)
+            t = time.perf_counter()
+            pose_frame = extractor.extract(frame, t)
 
-        pose_frame = extractor.extract(frame, t)
-        if not pose_frame:
-            frame_num += 1
-            continue
+            # Important: We increment frame count even if no pose is found 
+            # to match how label_gen.py counts total video frames.
+            if not pose_frame:
+                global_frame_num += 1
+                continue
 
-        fv = engineer.update(pose_frame)
-        gt = gt_map.get(frame_num)
+            fv = engineer.update(pose_frame)
+            gt = gt_map.get(global_frame_num)
 
-        predictions = {}
-        for name, clf in classifiers.items():
-            benches[name].start("total")
-            if name == "cnn":
-                pred = clf(fv, raw_landmarks=pose_frame.landmarks)
-            else:
-                pred = clf(fv)
-            benches[name].stop("total")
-            predictions[name] = pred
-            all_preds[name].append(pred)
+            predictions = {}
+            for name, clf in classifiers.items():
+                benches[name].start("total")
+                pred = clf(fv, raw_landmarks=pose_frame.landmarks) if name == "cnn" else clf(fv)
+                benches[name].stop("total")
+                predictions[name] = pred
+                
+                # Only record metrics if we have a ground truth label for this frame
+                if gt:
+                    all_preds[name].append(pred)
 
-        if gt:
-            all_truths.append(gt)
+            if gt:
+                all_truths.append(gt)
 
-        # Failure analysis
-        vis = fv.mean_visibility
-        failure_analyser.check(frame, predictions, gt, vis)
+            # Failure analysis
+            failure_analyser.check(frame, predictions, gt, fv.mean_visibility)
 
-        # Display
-        y = 20
-        for name, pred in predictions.items():
-            color = (0,255,128) if (not gt or pred == gt) else (0,80,255)
-            cv2.putText(frame, f"{name}: {pred}", (5, y),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.55, color, 1)
-            y += 22
-        benches["rule_based"].overlay(frame)
-        cv2.imshow("GestureBall Benchmark", frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-        frame_num += 1
+            # UI Overlay
+            y = 20
+            for name, pred in predictions.items():
+                color = (0, 255, 128) if (not gt or pred == gt) else (0, 80, 255)
+                cv2.putText(frame, f"{name}: {pred}", (5, y), 0, 0.55, color, 1)
+                y += 22
+            
+            cv2.imshow("GestureBall Batch Benchmark", frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                cap.release()
+                cv2.destroyAllWindows()
+                return # Exit completely
+            
+            global_frame_num += 1
+        
+        cap.release()
 
-    cap.release(); extractor.close(); cv2.destroyAllWindows()
-
-    # ── Print results ─────────────────────────────────────────────────────────
-    print("\n─── Benchmark Summary ─────────────────────────────────────")
+    # ── Final Reporting ───────────────────────────────────────────────────
+    cv2.destroyAllWindows()
+    print("\n─── Batch Benchmark Summary ─────────────────────────────────")
     results = {}
     for name, bench in benches.items():
         s = bench.summary().get("total", {})
-        ms  = s.get("mean_ms", 0)
-        fps = s.get("fps", 0)
-        print(f"\n  [{name}]  mean={ms:.1f}ms  fps={fps:.0f}")
-        results[name] = {"mean_latency_ms": ms, "fps": fps, "accuracy": 0.0}
+        results[name] = {"mean_latency_ms": s.get("mean_ms", 0), "fps": s.get("fps", 0), "accuracy": 0.0}
 
     if all_truths:
         for name, preds in all_preds.items():
-            n = min(len(preds), len(all_truths))
-            acc = np.mean([p == t for p, t in zip(preds[:n], all_truths[:n])])
+            acc = np.mean([p == t for p, t in zip(preds, all_truths)])
             results[name]["accuracy"] = acc
-            print(f"\n  [{name}] accuracy: {acc:.3f}")
-            print(classification_report(all_truths[:n], preds[:n],
-                                        labels=GESTURE_CLASSES, zero_division=0))
-            plot_confusion_matrix(all_truths[:n], preds[:n], name,
-                                  save_path=f"benchmark/{video_prefix}_confusion_{name}.png")
+            print(f"[{name}] Accuracy: {acc:.3f}")
+            plot_confusion_matrix(all_truths, preds, name, f"benchmark/cm_{name}.png")
 
+        plot_accuracy_vs_latency(results, "benchmark/batch_comparison.png")
+    
     failure_analyser.report()
-
-    if len(results) > 1:
-        plot_accuracy_vs_latency(results, save_path=f"benchmark/{video_prefix}_accuracy_vs_latency")
-
-    with open(f"{video_prefix}_benchmark_summary.json","w") as f:
-        json.dump(results, f, indent=2)
-    print("\nSaved benchmark_summary.json")
-    return results
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--video",   default=None, help="Path to video file (default: webcam)")
-    parser.add_argument("--labels",  default=None, help="CSV with frame,label columns")
-    parser.add_argument("--cnn",     action="store_true", help="Include CNN classifier")
-    parser.add_argument("--lstm",    action="store_true", help="Include LSTM classifier")
-    parser.add_argument("--webcam",  action="store_true", help="Use webcam")
+    parser.add_argument("--video", help="Single video file")
+    parser.add_argument("--folder", help="Folder of videos")
+    parser.add_argument("--labels", default="videos/labels.csv")
+    parser.add_argument("--cnn", action="store_true")
+    parser.add_argument("--lstm", action="store_true")
     args = parser.parse_args()
 
-    source = 0 if (args.webcam or args.video is None) else args.video
-    run_benchmark(source, args.labels, args.cnn, args.lstm)
+    sources = []
+    if args.folder:
+        sources = sorted([str(p) for p in Path(args.folder).glob("*.mp4")])
+    elif args.video:
+        sources = [args.video]
+    else:
+        sources = [0] # Webcam
+
+    run_benchmark(sources, args.labels, args.cnn, args.lstm)

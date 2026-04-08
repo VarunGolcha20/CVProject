@@ -9,6 +9,8 @@ __pycache__/
 *.npz
 .failure_cases/*.jpg
 data/cnn/*.npz
+data/cnn/*.jpg
+data/lstm/*.mp4
 benchmark/*.png
 benchmark/*.jpg
 .temp/
