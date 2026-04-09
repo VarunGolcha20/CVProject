@@ -20,4 +20,4 @@ venv/
 *.mp4
 cnn_images.zip
 videos.zip
-benchmark/batch_failuers
+benchmark/batch_failuers/*.jpg
