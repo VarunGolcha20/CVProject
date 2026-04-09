@@ -17,8 +17,8 @@ def parse_label(filename):
     stem  = Path(filename).stem.upper()
     parts = stem.split("_")
     base  = parts[0]
-    if base == "MOVE" and len(parts) > 1 and parts[1] in ("LEFT","RIGHT","UP","DOWN"):
-        return f"MOVE_{parts[1]}"
+    # if base == "MOVE":
+        # return f"MOVE"
     if base in GESTURE_CLASSES:
         return base
     raise ValueError(f"Cannot parse label from '{filename}'. Prefix must be one of: {GESTURE_CLASSES}")

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GestureBall Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0f1e; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: monospace; color: #e0e8ff; overflow: hidden; }
+        #hud { display: flex; align-items: center; justify-content: space-between; width: 900px; padding: 10px 0; }
+        .score-val { font-size: 48px; font-weight: bold; }
+        .timer { font-size: 32px; opacity: 0.8; }
+        #canvas-wrap { position: relative; }
+        canvas { background: #0d1528; border: 4px solid #1a263a; display: block; }
+        #overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(10,15,30,0.92); z-index: 10; gap: 10px; }
+        .hidden { display: none !important; }
+        .btn { padding: 10px 25px; background: #4fc3f7; border: none; font-weight: bold; cursor: pointer; color: #0a0f1e; text-transform: uppercase; margin: 5px; }
+        .btn-danger { background: #ef9a9a; }
+        select { background: #1a263a; color: white; border: 1px solid #4fc3f7; padding: 5px; font-family: inherit; }
+        #status-msg { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: yellow; font-weight: bold; font-size: 20px; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+<div id="hud">
+    <div style="color: #4fc3f7">ALPHA <span class="score-val" id="score1">0</span></div>
+    <div class="timer" id="timer">3:00</div>
+    <div style="color: #ef9a9a; text-align: right;">OMEGA <span class="score-val" id="score2">0</span></div>
+</div>
+
+<div id="canvas-wrap">
+    <div id="status-msg"></div>
+    <canvas id="c" width="900" height="560"></canvas>
+    <div id="overlay">
+        <h1>GESTUREBALL</h1>
+        <div>SIZE: <select id="playerCount"><option value="2">1v1</option><option value="4" selected>2v2</option><option value="6">3v3</option></select></div>
+        <div>SLOT: <select id="playerSelect"></select></div>
+        <button class="btn" onclick="startGame()">Kick Off</button>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+    <button class="btn" onclick="togglePause()">Pause/Resume (Space)</button>
+    <button class="btn btn-danger" onclick="restartMatch()">Full Reset</button>
+</div>
+
+<script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+    const socket = new WebSocket("ws://192.168.44.177:8760");
+
+    const updateDropdown = (val) => {
+        const sel = document.getElementById('playerSelect'); sel.innerHTML = "";
+        for(let i=1; i<=val; i++) sel.innerHTML += `<option value="${i}">P${i}</option>`;
+    };
+    document.getElementById('playerCount').onchange = (e) => updateDropdown(e.target.value);
+    updateDropdown(4);
+
+    socket.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        if (data.phase === 'playing' || data.phase === 'paused') document.getElementById('overlay').classList.add('hidden');
+        else document.getElementById('overlay').classList.remove('hidden');
+        
+        document.getElementById('status-msg').textContent = (data.phase === 'paused') ? "|| PAUSED" : "";
+        
+        const m = Math.floor(data.time / 60), s = String(Math.floor(data.time % 60)).padStart(2, '0');
+        document.getElementById('timer').textContent = `${m}:${s}`;
+        document.getElementById('score1').textContent = data.score[0];
+        document.getElementById('score2').textContent = data.score[1];
+        render(data);
+    };
+
+    function startGame() { socket.send(JSON.stringify({ type: 'ready', count: parseInt(document.getElementById('playerCount').value) })); }
+    function togglePause() { socket.send(JSON.stringify({ type: 'pause' })); }
+    function restartMatch() { socket.send(JSON.stringify({ type: 'restart' })); }
+
+    window.onkeydown = (e) => {
+        const pId = document.getElementById('playerSelect').value;
+        const key = e.key.toLowerCase();
+        if (key === 'm') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'MOVE' }));
+        if (key === 's') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'SHOOT' }));
+        if (key === 'p') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'PASS' })); // Ensure this is present
+        if (e.code === 'Space') togglePause();
+    };
+
+    window.onkeyup = (e) => { if (e.key.toLowerCase() === 'm') socket.send(JSON.stringify({ type: 'input', player: document.getElementById('playerSelect').value, move: 'STOP' })); };
+
+    function render(gs) {
+        ctx.clearRect(0, 0, 900, 560);
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 2;
+        ctx.strokeRect(30, 40, 840, 480);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#4fc3f7'; ctx.strokeRect(10, 200, 20, 160);
+        ctx.strokeStyle = '#ef9a9a'; ctx.strokeRect(870, 200, 20, 160);
+        
+        ctx.fillStyle = 'white'; ctx.beginPath(); ctx.arc(gs.ball.x, gs.ball.y, 11, 0, 7); ctx.fill();
+
+        gs.players.forEach(p => {
+            ctx.fillStyle = p.team === 0 ? '#4fc3f7' : '#ef9a9a';
+            ctx.beginPath(); ctx.arc(p.x, p.y, 20, 0, 7); ctx.fill();
+            ctx.strokeStyle = (gs.ball.holder === p.pid) ? '#FFD700' : 'white';
+            ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.x + Math.cos(p.angle) * 35, p.y + Math.sin(p.angle) * 35); ctx.stroke();
+            ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.font = '10px monospace';
+            ctx.fillText("P" + p.pid, p.x - 6, p.y - 28);
+        });
+    }
+</script>
+</body>
+</html>

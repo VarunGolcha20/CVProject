@@ -14,8 +14,7 @@ import os
 # CLASS DEFINITIONS
 # -----------------------------
 GESTURE_CLASSES = [
-    "IDLE", "SHOOT", "PASS", "DEFEND",
-    "MOVE_LEFT", "MOVE_RIGHT", "MOVE_UP", "MOVE_DOWN"
+    "IDLE", "SHOOT", "PASS", "MOVE"
 ]
 
 NUM_CLASSES = len(GESTURE_CLASSES)

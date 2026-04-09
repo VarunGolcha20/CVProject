@@ -19,8 +19,7 @@ import time
 FEATURE_DIM = 32
 
 GESTURE_CLASSES = [
-    "IDLE", "SHOOT", "PASS", "DEFEND",
-    "MOVE_LEFT", "MOVE_RIGHT", "MOVE_UP", "MOVE_DOWN"
+    "IDLE", "SHOOT", "PASS", "MOVE"
 ]
 
 # Defines the exact order of keypoints expected by the CNN
@@ -221,4 +220,4 @@ def collect_samples(label: str, pose_frame, fv: "FeatureVector", out_dir: str = 
     fname  = f"{out_dir}/{label}_{int(time.time()*1000)}.npz"
     np.savez_compressed(fname, landmarks=lm_arr, features=fv.to_array(), label=np.array(idx))
 if __name__ == "__main__":
-    train(data_dir="/content/cnn/cnn")
+    train(data_dir="data/cnn")

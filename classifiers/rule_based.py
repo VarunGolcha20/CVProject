@@ -84,8 +84,8 @@ class RuleBasedClassifier:
         # ── MOVE: hip centroid displacement → gives direction ─────────────────
         disp_mag = np.linalg.norm(fv.hip_displacement)
         if disp_mag > self.MOVE_HIP_THRESH:
-            direction = _direction_label(fv.hip_displacement)
-            return f"MOVE_{direction}"
+
+            return f"MOVE"
 
         return "IDLE"
 
