@@ -1,0 +1,621 @@
+{
+  "counts": {
+    "classifier_disagreement": 2781,
+    "misclassification": 2781,
+    "low_confidence": 341
+  },
+  "cases": [
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715525128.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715525538.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715525777.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715526040.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715526276.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715526535.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715526772.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715526951.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527134.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527308.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527478.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527639.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527813.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715527995.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715528156.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715528295.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715528438.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715528574.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_LEFT",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715528711.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715529238.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715529541.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715529843.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715530126.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715530415.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715530908.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715531220.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715531530.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_UP",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715531820.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "IDLE",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715532101.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715532483.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715532792.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715533122.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715533445.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715533770.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715534088.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715534392.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715534718.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_DOWN",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715535030.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715535356.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715535664.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715535983.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715536294.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715536619.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715536921.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715537302.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715537605.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE_RIGHT",
+        "mobilenet": "PASS"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715537899.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715538950.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715539237.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "PASS",
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark\\batch_failures\\fail_1775715539551.jpg"
+    }
+  ]
+}

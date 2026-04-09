@@ -7,7 +7,8 @@ from pathlib import Path
 from pipeline import PoseExtractor, FeatureEngineer
 from classifiers.cnn_classifier import GESTURE_CLASSES, GESTURE2IDX
 
-LSTM_WINDOW    = 30
+# LSTM_WINDOW    = 30
+LSTM_WINDOW    = 35
 CNN_STRIDE     = 1      # every frame — short clips need every sample
 MIN_VISIBILITY = 0.50
 MAX_CLIP_SEC   = 5      # warn if longer
@@ -23,12 +24,14 @@ def parse_label(filename):
     raise ValueError(f"Cannot parse label from '{filename}'. Prefix must be one of: {GESTURE_CLASSES}")
 
 class VideoProcessor:
-    def __init__(self, out_cnn="data/cnn", out_lstm="data/lstm", preview=False):
+    def __init__(self, out_cnn="data/cnn", out_lstm="data/lstm", preview=False,cnn_img_dir="cnn_images", lstm_vid_dir="lstm_videos"):
         self.out_cnn   = Path(out_cnn);  self.out_cnn.mkdir(parents=True, exist_ok=True)
         self.out_lstm  = Path(out_lstm); self.out_lstm.mkdir(parents=True, exist_ok=True)
+        self.cnn_img_dir  = Path(cnn_img_dir);  self.cnn_img_dir.mkdir(parents=True, exist_ok=True)
+        self.lstm_vid_dir = Path(lstm_vid_dir); self.lstm_vid_dir.mkdir(parents=True, exist_ok=True)
         self.preview   = preview
         self.extractor = PoseExtractor(model_complexity=2)
-        self.engineer  = FeatureEngineer(history=30)
+        self.engineer  = FeatureEngineer(history=35)
 
     def process_video(self, video_path):
         label     = parse_label(Path(video_path).name)
@@ -77,7 +80,7 @@ class VideoProcessor:
                 lm_arr = np.array([pose_frame.landmarks[k] for k in kp_order], dtype=np.float32)
                 fname  = self.out_cnn / f"{label}_{Path(video_path).stem}_{frame_num:05d}.npz"
                 np.savez_compressed(str(fname), landmarks=lm_arr, features=fv.to_array(), label=np.array(label_idx))
-                cv2.imwrite(str(self.out_cnn / f"{label}_{Path(video_path).stem}_{frame_num:05d}.jpg"), raw_frame)
+                cv2.imwrite(str(self.cnn_img_dir / f"{label}_{Path(video_path).stem}_{frame_num:05d}.jpg"), raw_frame)
                 stats["cnn_saved"] += 1
 
             all_features.append(fv.to_array())
@@ -114,7 +117,7 @@ class VideoProcessor:
             np.savez_compressed(str(fname), sequence=seq, label=np.array(label_idx))
             stats["lstm_saved"] += 1
 
-            vid_fname = self.out_lstm / f"{label}_{Path(video_path).stem}.mp4"
+            vid_fname = self.lstm_vid_dir / f"{label}_{Path(video_path).stem}.mp4"
             fourcc    = cv2.VideoWriter_fourcc(*'mp4v')
             out_vid   = cv2.VideoWriter(str(vid_fname), fourcc, fps, (width, height))
             for f in all_frames: out_vid.write(f)

@@ -195,7 +195,7 @@ def run_benchmark(video_sources, labels_csv: str = None,
     output_dir.mkdir(exist_ok=True)
     
     extractor = PoseExtractor()
-    engineer  = FeatureEngineer(history=30)
+    engineer  = FeatureEngineer(history=35)
     
     # We use a shared failure analyzer for the whole batch
     failure_analyser = FailureAnalyser(save_dir="benchmark/batch_failures")

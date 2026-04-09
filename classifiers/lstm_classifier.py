@@ -20,13 +20,13 @@ from collections import deque
 from pathlib import Path
 from classifiers.cnn_classifier import GESTURE_CLASSES, NUM_CLASSES, IDX2GESTURE
 
-WINDOW = 30   # frames (~1 second at 30fps) — tune to gesture duration
-
+# WINDOW = 30   # frames (~1 second at 30fps) — tune to gesture duration
+WINDOW=35
 
 # ── Model ─────────────────────────────────────────────────────────────────────
 class GestureLSTM(nn.Module):
     """
-    Input:  (B, T, 17) — T frames of FeatureVectors
+    Input:  (B, T, 32) — T frames of FeatureVectors
     Output: (B, NUM_CLASSES)
 
     Architecture choices:
@@ -35,7 +35,7 @@ class GestureLSTM(nn.Module):
       - Attention pooling: lets model focus on the key frame of the gesture
         (e.g., the moment of impact in a shoot)
     """
-    def __init__(self, input_dim: int = 16, hidden: int = 128,
+    def __init__(self, input_dim: int = 32, hidden: int = 128,
                  num_layers: int = 2, num_classes: int = NUM_CLASSES,
                  dropout: float = 0.4):
         super().__init__()
@@ -56,9 +56,10 @@ class GestureLSTM(nn.Module):
 
         self.fc1    = nn.Linear(hidden * 2, 128)
         self.fc2    = nn.Linear(128, num_classes)
-
+        self.input_norm = nn.LayerNorm(input_dim)
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """x: (B, T, 17)"""
+        x = self.input_norm(x)
         out, _ = self.gru(x)                   # (B, T, 2H)
         out    = self.ln(out)
 
@@ -94,12 +95,38 @@ class SequenceDataset(Dataset):
 
 
 # ── Training ──────────────────────────────────────────────────────────────────
+
+def _split_by_video_lstm(dataset, val_frac=0.2, seed=42):
+    """
+    Split by video stem so no video appears in both train and val.
+    LSTM filenames: LABEL_videostem.npz (no frame number suffix)
+    so every file is already one independent clip — simple random split
+    over files is correct here. But we still group by video stem in case
+    you ever regenerate with sliding windows.
+    """
+    import random
+    from collections import defaultdict
+    random.seed(seed)
+    video_groups = defaultdict(list)
+    for i, f in enumerate(dataset.files):
+        # LSTM files: SHOOT_take3.npz — no trailing frame number
+        video_groups[f.stem].append(i)
+    stems = list(video_groups.keys())
+    random.shuffle(stems)
+    split       = max(1, int(val_frac * len(stems)))
+    val_stems   = stems[:split]
+    train_stems = stems[split:]
+    train_idx = [i for s in train_stems for i in video_groups[s]]
+    val_idx   = [i for s in val_stems   for i in video_groups[s]]
+    print(f"  Video split: {len(train_stems)} train / {len(val_stems)} val clips")
+    return (torch.utils.data.Subset(dataset, train_idx),
+            torch.utils.data.Subset(dataset, val_idx))
+
+
 def train(data_dir: str = "data/lstm", epochs: int = 80,
           lr: float = 5e-4, save_path: str = "models/lstm_gesture.pt"):
-    dataset  = SequenceDataset(data_dir)
-    n_train  = int(0.8 * len(dataset))
-    train_ds, val_ds = torch.utils.data.random_split(
-        dataset, [n_train, len(dataset) - n_train])
+    dataset          = SequenceDataset(data_dir)
+    train_ds, val_ds = _split_by_video_lstm(dataset)
 
     train_dl = DataLoader(train_ds, batch_size=32, shuffle=True,  num_workers=2)
     val_dl   = DataLoader(val_ds,   batch_size=32, shuffle=False, num_workers=2)
@@ -207,42 +234,4 @@ class SequenceRecorder:
         np.savez_compressed(fname, sequence=seq, label=np.array(idx))
         print(f"Saved {fname}")
 if __name__ == "__main__":
-    import numpy as np
-    from pathlib import Path
-
-    # 1. Load one real sample
-    data_dir = Path("data/lstm")
-    files = list(data_dir.glob("*.npz"))
-
-    assert files, "❌ No .npz files found in data/lstm"
-
-    sample_file = files[0]
-    data = np.load(sample_file)
-
-    sequence = data["sequence"]   # (30, 17)
-    label    = int(data["label"])
-
-    print(f"Loaded file: {sample_file}")
-    print(f"Sequence shape: {sequence.shape}")
-    print(f"Label: {label}")
-
-    # 2. Create model
-    model = GestureLSTM(num_classes=NUM_CLASSES)
-
-    # 3. Convert to tensor
-    x = torch.from_numpy(sequence).float().unsqueeze(0)  # (1, 30, 17)
-
-    # 4. Forward pass
-    output = model(x)
-
-    print("\n--- Real Data Check ---")
-    print(f"Output Shape: {output.shape}")
-    print(f"Logits: {output.detach().numpy()}")
-
-    pred = output.argmax(dim=1).item()
-    print(f"Predicted class: {pred}")
-    print(f"Ground truth: {label}")
-
-    print("✅ Model + data pipeline is working!")
-
-    train()
+    train(data_dir="data/lstm")

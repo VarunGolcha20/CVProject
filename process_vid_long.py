@@ -34,7 +34,7 @@ from classifiers.cnn_classifier import GESTURE_CLASSES, GESTURE2IDX
 
 
 # ── Config ────────────────────────────────────────────────────────────────────
-LSTM_WINDOW   = 30      # frames per LSTM sample
+LSTM_WINDOW   = 35      # frames per LSTM sample
 CNN_STRIDE    = 3       # save 1 CNN frame every N frames (avoid near-duplicates)
 MIN_VISIBILITY = 0.55   # skip frames where pose is not confident enough
 OVERLAP        = 15     # LSTM window overlap (stride = WINDOW - OVERLAP)
@@ -69,12 +69,15 @@ def parse_label(filename: str) -> str:
 class VideoProcessor:
     def __init__(self, out_cnn: str = "data/cnn",
                  out_lstm: str = "data/lstm",
+                 cnn_img_dir="cnn_images", lstm_vid_dir="lstm_videos",
                  preview: bool = False):
         self.out_cnn  = Path(out_cnn);  self.out_cnn.mkdir(parents=True, exist_ok=True)
         self.out_lstm = Path(out_lstm); self.out_lstm.mkdir(parents=True, exist_ok=True)
+        self.cnn_img_dir  = Path(cnn_img_dir);  self.cnn_img_dir.mkdir(parents=True, exist_ok=True)
+        self.lstm_vid_dir = Path(lstm_vid_dir); self.lstm_vid_dir.mkdir(parents=True, exist_ok=True)
         self.preview  = preview
         self.extractor = PoseExtractor(model_complexity=2)  # use full model offline
-        self.engineer  = FeatureEngineer(history=30)
+        self.engineer  = FeatureEngineer(history=35)
 
     def process_video(self, video_path: str) -> dict:
         label      = parse_label(Path(video_path).name)
@@ -82,6 +85,7 @@ class VideoProcessor:
 
         cap        = cv2.VideoCapture(video_path)
         fps        = cap.get(cv2.CAP_PROP_FPS) or 30
+        max_frames = int(fps * 60)
         total_fr   = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         
         # --- NEW: Get dimensions for saving video clips ---
@@ -105,7 +109,7 @@ class VideoProcessor:
         from pipeline import KEYPOINTS
         kp_order = list(KEYPOINTS.keys())
 
-        while cap.isOpened():
+        while cap.isOpened() and frame_num<max_frames:
             ret, frame = cap.read()
             if not ret:
                 break
@@ -145,7 +149,7 @@ class VideoProcessor:
                 
                 # --- NEW: Save the actual CNN frame ---
                 img_fname = self.out_cnn / f"{label}_{Path(video_path).stem}_{frame_num:05d}.jpg"
-                cv2.imwrite(str(img_fname), raw_frame)
+                cv2.imwrite(str(self.cnn_img_dir / f"{label}_{Path(video_path).stem}_{frame_num:05d}.jpg"), raw_frame)
                 
                 stats["cnn_saved"] += 1
 
@@ -166,7 +170,8 @@ class VideoProcessor:
                     label    = np.array(label_idx))
                 
                 # --- NEW: Save the LSTM window as a video clip ---
-                vid_fname = self.out_lstm / f"{label}_{Path(video_path).stem}_{frame_num:05d}.mp4"
+                # vid_fname = self.out_lstm / f"{label}_{Path(video_path).stem}_{frame_num:05d}.mp4"
+                vid_fname = self.lstm_vid_dir / f"{label}_{Path(video_path).stem}.mp4"
                 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
                 out_vid = cv2.VideoWriter(str(vid_fname), fourcc, fps, (width, height))
                 for f in frame_buffer:

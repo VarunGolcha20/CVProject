@@ -335,7 +335,9 @@ class FeatureEngineer:
         # ── IDLE: moving joint count ──────────────────────────────────────────
         # Fraction of joints whose instantaneous speed exceeds a small threshold.
         # Idle = 0.0, active gesture = > 0.3
-        vel_threshold = 5.0   # pixels/second
+        
+        # FIX: Threshold updated from 5.0 (pixels) to 0.05 (normalized units)
+        vel_threshold = 0.05   
         joints_moving = sum([
             _vel_mag(fv.left_ankle_vel)  > vel_threshold,
             _vel_mag(fv.right_ankle_vel) > vel_threshold,
@@ -391,13 +393,15 @@ class PoseExtractor:
         if not result.pose_landmarks:
             return None
 
-        h, w   = frame_bgr.shape[:2]
+        # h, w   = frame_bgr.shape[:2] # We no longer need height and width here!
         raw_lm = result.pose_landmarks.landmark
+        
+        # FIX: Keep coordinates strictly normalized [0.0 - 1.0]
         landmarks = {
             name: (
-                raw_lm[idx].x * w,
-                raw_lm[idx].y * h,
-                raw_lm[idx].z * w,
+                raw_lm[idx].x, 
+                raw_lm[idx].y, 
+                raw_lm[idx].z, 
                 raw_lm[idx].visibility,
             )
             for name, idx in KEYPOINTS.items()
@@ -456,7 +460,7 @@ def run_pipeline(classifier_fn=None, source: int = 0):
 
     cap       = cv2.VideoCapture(source)
     extractor = PoseExtractor()
-    engineer  = FeatureEngineer(history=30)
+    engineer  = FeatureEngineer(history=35)
     bench     = Benchmarker()
     clf       = classifier_fn or RuleBasedClassifier()
     mp_draw   = mp.solutions.drawing_utils
@@ -495,9 +499,9 @@ def run_pipeline(classifier_fn=None, source: int = 0):
 
             # Direction arrow from hip displacement
             disp = fv.hip_displacement
-            if np.linalg.norm(disp) > 0.01:
+            if np.linalg.norm(disp) > 0.005:  # FIX: adjusted threshold for small normalized values
                 cx, cy = frame.shape[1]//2, frame.shape[0]//2
-                scale  = 200
+                scale  = 1000  # FIX: Scale up drastically so it's visible on a pixel canvas
                 ex = int(cx + disp[0] * scale)
                 ey = int(cy + disp[1] * scale)
                 cv2.arrowedLine(frame, (cx,cy), (ex,ey), (0,255,255), 2)

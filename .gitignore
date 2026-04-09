@@ -14,3 +14,10 @@ data/lstm/*.mp4
 benchmark/*.png
 benchmark/*.jpg
 .temp/
+cnn_images/
+lstm_images/
+venv/
+*.mp4
+cnn_images.zip
+videos.zip
+benchmark/batch_failuers
