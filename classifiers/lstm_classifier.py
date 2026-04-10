@@ -36,7 +36,7 @@ class GestureLSTM(nn.Module):
         (e.g., the moment of impact in a shoot)
     """
     def __init__(self, input_dim: int = 32, hidden: int = 128,
-                 num_layers: int = 2, num_classes: int = NUM_CLASSES,
+                 num_layers: int = 4, num_classes: int = NUM_CLASSES,
                  dropout: float = 0.4):
         super().__init__()
 
@@ -45,16 +45,16 @@ class GestureLSTM(nn.Module):
             hidden_size=hidden,
             num_layers=num_layers,
             batch_first=True,
-            bidirectional=True,
+            bidirectional=False,
             dropout=dropout if num_layers > 1 else 0,
         )
-        self.ln     = nn.LayerNorm(hidden * 2)
+        self.ln     = nn.LayerNorm(hidden)
         self.drop   = nn.Dropout(dropout)
 
         # Attention: learn which frame matters most
-        self.attn   = nn.Linear(hidden * 2, 1)
+        self.attn   = nn.Linear(hidden, 1)
 
-        self.fc1    = nn.Linear(hidden * 2, 128)
+        self.fc1    = nn.Linear(hidden, 128)
         self.fc2    = nn.Linear(128, num_classes)
         self.input_norm = nn.LayerNorm(input_dim)
     def forward(self, x: torch.Tensor) -> torch.Tensor:
