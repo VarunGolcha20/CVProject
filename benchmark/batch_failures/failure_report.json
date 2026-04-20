@@ -1,7 +1,8 @@
 {
   "counts": {
-    "classifier_disagreement": 8400,
-    "misclassification": 8432
+    "classifier_disagreement": 1402,
+    "misclassification": 1406,
+    "low_confidence": 52
   },
   "cases": [
     {
@@ -15,20 +16,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454197.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "IDLE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454626.jpg"
+      "file": "benchmark/batch_failures/fail_1776712220075.jpg"
     },
     {
       "reasons": [
@@ -41,7 +29,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454703.jpg"
+      "file": "benchmark/batch_failures/fail_1776712220550.jpg"
     },
     {
       "reasons": [
@@ -54,7 +42,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454794.jpg"
+      "file": "benchmark/batch_failures/fail_1776712220706.jpg"
     },
     {
       "reasons": [
@@ -67,7 +55,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454877.jpg"
+      "file": "benchmark/batch_failures/fail_1776712220836.jpg"
     },
     {
       "reasons": [
@@ -80,7 +68,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739454956.jpg"
+      "file": "benchmark/batch_failures/fail_1776712220947.jpg"
     },
     {
       "reasons": [
@@ -93,7 +81,7 @@
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455037.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221068.jpg"
     },
     {
       "reasons": [
@@ -102,11 +90,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455113.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221187.jpg"
     },
     {
       "reasons": [
@@ -115,11 +103,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455189.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221302.jpg"
     },
     {
       "reasons": [
@@ -128,11 +116,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455272.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221411.jpg"
     },
     {
       "reasons": [
@@ -141,11 +129,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455368.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221522.jpg"
     },
     {
       "reasons": [
@@ -154,11 +142,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455446.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221621.jpg"
     },
     {
       "reasons": [
@@ -167,11 +155,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455523.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221755.jpg"
     },
     {
       "reasons": [
@@ -180,11 +168,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455616.jpg"
+      "file": "benchmark/batch_failures/fail_1776712221882.jpg"
     },
     {
       "reasons": [
@@ -193,11 +181,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455699.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222000.jpg"
     },
     {
       "reasons": [
@@ -206,11 +194,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455803.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222106.jpg"
     },
     {
       "reasons": [
@@ -219,11 +207,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455886.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222214.jpg"
     },
     {
       "reasons": [
@@ -232,11 +220,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739455984.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222328.jpg"
     },
     {
       "reasons": [
@@ -245,11 +233,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456075.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222437.jpg"
     },
     {
       "reasons": [
@@ -258,11 +246,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456155.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222563.jpg"
     },
     {
       "reasons": [
@@ -271,11 +259,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456239.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222674.jpg"
     },
     {
       "reasons": [
@@ -284,11 +272,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456324.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222782.jpg"
     },
     {
       "reasons": [
@@ -297,11 +285,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456402.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222875.jpg"
     },
     {
       "reasons": [
@@ -310,11 +298,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456488.jpg"
+      "file": "benchmark/batch_failures/fail_1776712222981.jpg"
     },
     {
       "reasons": [
@@ -323,11 +311,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456576.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223106.jpg"
     },
     {
       "reasons": [
@@ -336,11 +324,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456670.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223225.jpg"
     },
     {
       "reasons": [
@@ -349,11 +337,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456749.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223326.jpg"
     },
     {
       "reasons": [
@@ -362,11 +350,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456853.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223429.jpg"
     },
     {
       "reasons": [
@@ -375,24 +363,25 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739456936.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223527.jpg"
     },
     {
       "reasons": [
         "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "UNCERTAIN",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457028.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223636.jpg"
     },
     {
       "reasons": [
@@ -401,24 +390,25 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457158.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223751.jpg"
     },
     {
       "reasons": [
         "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "UNCERTAIN",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457259.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223853.jpg"
     },
     {
       "reasons": [
@@ -427,11 +417,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457342.jpg"
+      "file": "benchmark/batch_failures/fail_1776712223954.jpg"
     },
     {
       "reasons": [
@@ -440,11 +430,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457436.jpg"
+      "file": "benchmark/batch_failures/fail_1776712224059.jpg"
     },
     {
       "reasons": [
@@ -453,11 +443,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "BUFFERING"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457538.jpg"
+      "file": "benchmark/batch_failures/fail_1776712224169.jpg"
     },
     {
       "reasons": [
@@ -466,180 +456,11 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457646.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457771.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739457943.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458065.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458179.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458301.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458404.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458506.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458610.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458705.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458810.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458908.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739458998.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "IDLE"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739459090.jpg"
+      "file": "benchmark/batch_failures/fail_1776712224298.jpg"
     },
     {
       "reasons": [
@@ -648,11 +469,195 @@
       ],
       "preds": {
         "rule_based": "MOVE",
-        "cnn": "IDLE",
+        "cnn": "SHOOT",
         "lstm": "IDLE"
       },
       "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1775739459192.jpg"
+      "file": "benchmark/batch_failures/fail_1776712224409.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712224526.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712224637.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712224751.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712224871.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712224997.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225112.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "UNCERTAIN",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225229.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "SHOOT",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225357.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "UNCERTAIN",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225549.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "PASS",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225672.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "PASS",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225792.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "PASS",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712225919.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "PASS",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712226039.jpg"
+    },
+    {
+      "reasons": [
+        "classifier_disagreement",
+        "misclassification"
+      ],
+      "preds": {
+        "rule_based": "MOVE",
+        "cnn": "PASS",
+        "lstm": "IDLE"
+      },
+      "gt": "IDLE",
+      "file": "benchmark/batch_failures/fail_1776712226160.jpg"
     }
   ]
 }

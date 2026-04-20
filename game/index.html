@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GestureBall Pro</title>
+    <style>
+        /* Pro Theme Styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0f1e; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: monospace; color: #e0e8ff; overflow: hidden; }
+        
+        #hud { display: flex; align-items: center; justify-content: space-between; width: 900px; padding: 10px 0; }
+        .score-val { font-size: 48px; font-weight: bold; }
+        .timer { font-size: 32px; opacity: 0.8; }
+        
+        #arena { display: flex; align-items: center; gap: 20px; }
+        .cam-col { display: flex; flex-direction: column; gap: 10px; min-width: 210px; }
+        .cam-feed { width: 210px; height: 155px; background: #0d1528; border: 3px solid #1a263a; border-radius: 4px; object-fit: cover; }
+
+        #canvas-wrap { position: relative; }
+        canvas { background: #0d1528; border: 4px solid #1a263a; border-radius: 4px; display: block; }
+        
+        /* Overlays */
+        .overlay-layer { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(10,15,30,0.95); z-index: 10; gap: 15px; }
+        .hidden { display: none !important; }
+        .btn { padding: 12px 25px; background: #4fc3f7; border: none; font-weight: bold; cursor: pointer; color: #0a0f1e; border-radius: 4px; text-transform: uppercase; transition: 0.2s; }
+        .btn:hover { filter: brightness(1.2); }
+        
+        /* Config Controls */
+        .config-row { display: flex; gap: 10px; align-items: flex-end; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 4px; border: 1px solid rgba(79, 195, 247, 0.3); }
+        select, input { background: #1a263a; color: white; border: 1px solid #4fc3f7; padding: 8px; font-family: inherit; width: 160px; outline: none; }
+        label { display: block; font-size: 10px; color: gold; margin-bottom: 4px; text-transform: uppercase; }
+        
+        #status-msg { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); color: gold; font-weight: bold; font-size: 24px; z-index: 5; text-shadow: 0 0 10px black; }
+    </style>
+</head>
+<body>
+
+<div id="hud">
+    <div style="color: #4fc3f7">ALPHA <span class="score-val" id="score1">0</span></div>
+    <div class="timer" id="timer">5:00</div>
+    <div style="color: #ef9a9a; text-align: right;">OMEGA <span class="score-val" id="score2">0</span></div>
+</div>
+
+<div id="arena">
+    <div id="left-cams" class="cam-col"></div>
+
+    <div id="canvas-wrap">
+        <div id="status-msg"></div>
+        <canvas id="c" width="900" height="560"></canvas>
+
+        <div id="overlay" class="overlay-layer">
+            <h1 style="letter-spacing: 5px; color: #4fc3f7;">GESTUREBALL PRO</h1>
+            
+            <div class="config-row">
+                <div><label>1. Bind To</label>
+                    <select id="playerSelect"></select>
+                </div>
+                <div><label>2. Source</label>
+                    <select id="sourceType" onchange="toggleSourceUI()">
+                        <option value="webcam">Local Webcam</option>
+                        <option value="droidcam">DroidCam (IP)</option>
+                    </select>
+                </div>
+                <div id="ui-webcam"><label>Select Device</label>
+                    <select id="cameraSelect"></select>
+                </div>
+                <div id="ui-droidcam" class="hidden"><label>Phone IP</label>
+                    <input type="text" id="phoneIP" placeholder="192.168.1.XX">
+                </div>
+                <div><label>3. Rotation</label>
+                    <select id="rotateDegree">
+                        <option value="0">0° (Normal)</option>
+                        <option value="90">90° CW</option>
+                        <option value="180">180°</option>
+                        <option value="270">270° CW / 90° ACW</option>
+                    </select>
+                </div>
+                <button class="btn" style="background: gold;" onclick="handleLink()">Link Player</button>
+            </div>
+
+            <div style="margin-top: 10px; display: flex; align-items: center; gap: 15px;">
+                <label style="margin:0;">Match Size:</label>
+                <select id="playerCount" style="width: 80px;">
+                    <option value="2">1v1</option>
+                    <option value="4" selected>2v2</option>
+                    <option value="6">3v3</option>
+                </select>
+                <button class="btn" onclick="startGame()">Kick Off Match</button>
+            </div>
+            <p style="font-size: 11px; opacity: 0.6; margin-top: 10px;">[SPACE] PAUSE · [M] MOVE · [S] SHOOT · [P] PASS</p>
+        </div>
+
+        <div id="win-screen" class="overlay-layer hidden">
+            <h2 id="winner-name" style="color: gold; font-size: 48px;"></h2>
+            <div id="final-score" style="font-size: 24px; margin-bottom: 20px;"></div>
+            <button class="btn" onclick="restartMatch()">Main Menu</button>
+        </div>
+    </div>
+
+    <div id="right-cams" class="cam-col"></div>
+</div>
+
+<div style="margin-top: 20px; display: flex; gap: 15px;">
+    <button class="btn" onclick="togglePause()">Pause / Resume</button>
+    <button class="btn" style="background: #ef9a9a;" onclick="restartMatch()">Reset Match</button>
+</div>
+
+<script>
+    const canvas = document.getElementById('c'), ctx = canvas.getContext('2d');
+    const socket = new WebSocket(`ws://${window.location.hostname || 'localhost'}:8760`);
+
+    // UI Initialization
+    const updateUI = (cnt) => {
+        const pSel = document.getElementById('playerSelect'); pSel.innerHTML = "";
+        for(let i=1; i<=cnt; i++) pSel.innerHTML += `<option value="${i}">Player ${i}</option>`;
+        
+        const l = document.getElementById('left-cams'), r = document.getElementById('right-cams');
+        l.innerHTML = r.innerHTML = "";
+        for(let i=1; i<=cnt; i++) {
+            const img = document.createElement('img'); img.id = `f-${i}`; img.className = 'cam-feed';
+            img.alt = `P${i} Standby`;
+            (i <= cnt/2) ? l.appendChild(img) : r.appendChild(img);
+        }
+    };
+    document.getElementById('playerCount').onchange = (e) => updateUI(e.target.value);
+    updateUI(4);
+
+    function toggleSourceUI() {
+        const type = document.getElementById('sourceType').value;
+        document.getElementById('ui-webcam').classList.toggle('hidden', type !== 'webcam');
+        document.getElementById('ui-droidcam').classList.toggle('hidden', type !== 'droidcam');
+    }
+
+    async function initWebcams() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({video: true});
+            stream.getTracks().forEach(t => t.stop());
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const sel = document.getElementById('cameraSelect');
+            sel.innerHTML = "";
+            devices.filter(d => d.kind === 'videoinput').forEach((d, i) => {
+                sel.innerHTML += `<option value="${d.deviceId}">${d.label || 'Camera ' + (i+1)}</option>`;
+            });
+        } catch(e) { console.log("Webcam permission denied."); }
+    }
+    initWebcams();
+
+    // Link Logic with manual rotation
+    function handleLink() {
+        const pid = document.getElementById('playerSelect').value;
+        const type = document.getElementById('sourceType').value;
+        const rotation = parseInt(document.getElementById('rotateDegree').value);
+        
+        const cvs = document.createElement('canvas'); 
+        cvs.width = 320; cvs.height = 240; 
+        const cctx = cvs.getContext('2d');
+
+        let videoSource;
+
+        if (type === 'webcam') {
+            const devId = document.getElementById('cameraSelect').value;
+            videoSource = document.createElement('video');
+            navigator.mediaDevices.getUserMedia({video: {deviceId: {exact: devId}}}).then(stream => {
+                videoSource.srcObject = stream; videoSource.play();
+            });
+        } else {
+            const ip = document.getElementById('phoneIP').value;
+            if(!ip) return alert("Enter Phone IP from DroidCam");
+            videoSource = new Image();
+            videoSource.crossOrigin = "Anonymous";
+            videoSource.src = `http://${ip}:4747/video`;
+        }
+
+        setInterval(() => {
+            try {
+                cctx.clearRect(0, 0, 320, 240);
+                cctx.save();
+                // Apply manual rotation transformations
+                if (rotation === 90) {
+                    cctx.translate(320, 0); cctx.rotate(Math.PI / 2);
+                    cctx.drawImage(videoSource, 0, 0, 240, 320);
+                } else if (rotation === 180) {
+                    cctx.translate(320, 240); cctx.rotate(Math.PI);
+                    cctx.drawImage(videoSource, 0, 0, 320, 240);
+                } else if (rotation === 270) {
+                    cctx.translate(0, 240); cctx.rotate(-Math.PI / 2);
+                    cctx.drawImage(videoSource, 0, 0, 240, 320);
+                } else {
+                    cctx.drawImage(videoSource, 0, 0, 320, 240);
+                }
+                cctx.restore();
+                socket.send(JSON.stringify({type: 'video_frame', pid: pid, frame: cvs.toDataURL('image/jpeg', 0.4)}));
+            } catch(e) {}
+        }, 100);
+        alert(`Linked P${pid} with ${rotation}° Rotation`);
+    }
+
+    // Server Communications
+    socket.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        document.getElementById('overlay').classList.toggle('hidden', data.phase !== 'waiting');
+        document.getElementById('win-screen').classList.toggle('hidden', data.phase !== 'gameover');
+        if(data.phase === 'gameover') {
+            document.getElementById('winner-name').textContent = data.winner + " WINS!";
+            document.getElementById('final-score').textContent = `${data.score[0]} - ${data.score[1]}`;
+        }
+        document.getElementById('status-msg').textContent = data.phase === 'paused' ? "|| PAUSED" : "";
+        document.getElementById('score1').textContent = data.score[0];
+        document.getElementById('score2').textContent = data.score[1];
+        const m = Math.floor(data.time/60), s = String(Math.floor(data.time%60)).padStart(2,'0');
+        document.getElementById('timer').textContent = `${m}:${s}`;
+        
+        if(data.frames) {
+            Object.entries(data.frames).forEach(([p, f]) => { 
+                const img = document.getElementById(`f-${p}`); if(img) img.src = f; 
+            });
+        }
+        render(data);
+    };
+
+    function startGame() { socket.send(JSON.stringify({type:'ready', count:document.getElementById('playerCount').value})); }
+    function togglePause() { socket.send(JSON.stringify({type:'pause'})); }
+    function restartMatch() { socket.send(JSON.stringify({type:'restart'})); }
+
+    // Controls
+    window.onkeydown = (e) => {
+        if(e.code === 'Space') togglePause();
+        const pId = document.getElementById('playerSelect').value;
+        const k = e.key.toLowerCase();
+        if (k === 'm') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'MOVE' }));
+        if (k === 's') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'SHOOT' }));
+        if (k === 'p') socket.send(JSON.stringify({ type: 'input', player: pId, move: 'PASS' }));
+    };
+    window.onkeyup = (e) => { 
+        if (e.key.toLowerCase() === 'm') socket.send(JSON.stringify({ type: 'input', player: document.getElementById('playerSelect').value, move: 'STOP' })); 
+    };
+
+    // Rendering Engine with Arrows
+    function render(gs) {
+        ctx.clearRect(0, 0, 900, 560);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)'; ctx.lineWidth = 2;
+        ctx.strokeRect(30, 40, 840, 480);
+        ctx.beginPath(); ctx.moveTo(450, 40); ctx.lineTo(450, 520); ctx.stroke();
+        ctx.beginPath(); ctx.arc(450, 280, 60, 0, 6.28); ctx.stroke();
+        
+        // Ball
+        ctx.fillStyle = 'white'; 
+        ctx.shadowBlur = 10; ctx.shadowColor = "white";
+        ctx.beginPath(); ctx.arc(gs.ball.x, gs.ball.y, 11, 0, 7); ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Players & Rotating Arrows
+        gs.players.forEach(p => {
+            const isHolder = gs.ball.holder === p.pid;
+            ctx.fillStyle = p.team === 0 ? '#4fc3f7' : '#ef9a9a';
+            ctx.beginPath(); ctx.arc(p.x, p.y, 20, 0, 7); ctx.fill();
+
+            const arrowLen = 35, headLen = 10, angle = p.angle;
+            const tox = p.x + Math.cos(angle) * arrowLen;
+            const toy = p.y + Math.sin(angle) * arrowLen;
+            ctx.strokeStyle = isHolder ? 'gold' : 'white';
+            ctx.lineWidth = isHolder ? 4 : 2;
+            
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(tox, toy);
+            ctx.lineTo(tox - headLen * Math.cos(angle - 0.5), toy - headLen * Math.sin(angle - 0.5));
+            ctx.moveTo(tox, toy);
+            ctx.lineTo(tox - headLen * Math.cos(angle + 0.5), toy - headLen * Math.sin(angle + 0.5));
+            ctx.stroke();
+
+            ctx.fillStyle = '#0a0f1e'; ctx.font = 'bold 12px monospace'; ctx.textAlign = 'center';
+            ctx.fillText("P"+p.pid, p.x, p.y+5);
+        });
+    }
+</script>
+</body>
+</html>
