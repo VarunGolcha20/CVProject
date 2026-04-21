@@ -190,21 +190,42 @@ class LSTMClassifier:
 
     @torch.no_grad()
     def __call__(self, fv) -> str:
-        """fv: FeatureVector"""
+        label, _, _ = self.predict_with_details(fv)
+        return label
+
+    @torch.no_grad()
+    def predict_with_details(self, fv):
+        """
+        Returns (label: str, confidence: float, attention_weights: list[float] | None).
+        attention_weights is a list of length WINDOW (35) summing to ~1.0.
+        High weight at frame i means the GRU used frame i most for its decision.
+        Used by DetailedLogger in benchmark.py for attention analysis.
+        """
         self.buffer.append(fv.to_array())
 
         if len(self.buffer) < self.window:
-            return "BUFFERING"          # not enough frames yet
+            return "BUFFERING", 0.0, None
 
-        seq = np.stack(self.buffer, axis=0)               # (T, 17)
-        t   = torch.from_numpy(seq).float().unsqueeze(0)  # (1, T, 17)
-        logits = self.model(t.to(self.device))
-        probs  = F.softmax(logits, dim=1)[0]
+        seq = np.stack(self.buffer, axis=0)
+        t   = torch.from_numpy(seq).float().unsqueeze(0).to(self.device)
+
+        # Re-run forward pass manually to extract attention weights
+        x       = self.model.input_norm(t)
+        out, _  = self.model.gru(x)
+        out     = self.model.ln(out)
+        scores  = self.model.attn(out).squeeze(-1)          # (1, T)
+        weights = F.softmax(scores, dim=1)                  # (1, T)
+        context = (out * weights.unsqueeze(-1)).sum(dim=1)  # (1, H)
+        logits  = self.model.fc2(F.relu(self.model.fc1(self.model.drop(context))))
+
+        probs     = F.softmax(logits, dim=1)[0]
         conf, idx = probs.max(0)
+        attn_list = weights[0].cpu().numpy().tolist()
 
         if conf.item() < self.conf_thresh:
-            return "UNCERTAIN"
-        return IDX2GESTURE[idx.item()]
+            return "UNCERTAIN", float(conf.item()), attn_list
+
+        return IDX2GESTURE[idx.item()], float(conf.item()), attn_list
 
 
 # ── Sequence data collection ───────────────────────────────────────────────────

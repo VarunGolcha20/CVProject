@@ -193,8 +193,18 @@ class CNNClassifier:
     @torch.no_grad()
     # Note: Type hinting as a string ("FeatureVector") to avoid needing the import
     def __call__(self, fv: "FeatureVector", raw_landmarks: dict = None) -> str:
+        label, _ = self.predict_with_details(fv, raw_landmarks)
+        return label
+
+    @torch.no_grad()
+    def predict_with_details(self, fv: "FeatureVector", raw_landmarks: dict = None):
+        """
+        Returns (label: str, confidence: float).
+        confidence is the max softmax probability (0-1).
+        Used by DetailedLogger in benchmark.py for confidence distribution analysis.
+        """
         if raw_landmarks is None:
-            return "IDLE"
+            return "IDLE", 0.0
 
         lm_arr = np.array([raw_landmarks[k] for k in self._kp_order], dtype=np.float32)
         lm_arr[:, :2] /= (lm_arr[:, :2].max() + 1e-8)
@@ -207,9 +217,9 @@ class CNNClassifier:
         conf, idx = probs.max(0)
 
         if conf.item() < self.conf_thresh:
-            return "UNCERTAIN"
+            return "UNCERTAIN", float(conf.item())
 
-        return IDX2GESTURE[idx.item()]
+        return IDX2GESTURE[idx.item()], float(conf.item())
 
 
 # ── Data collection helper ────────────────────────────────────────────────────

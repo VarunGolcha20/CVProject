@@ -98,6 +98,67 @@ class FailureAnalyser:
         return counts
 
 
+# ── Detailed per-frame logger ─────────────────────────────────────────────────
+class DetailedLogger:
+    """
+    Captures per-frame data for deep analysis:
+      - ground truth label
+      - predictions from each model
+      - confidence scores (CNN, LSTM)
+      - key feature values (for rule-based boundary analysis)
+      - LSTM attention weights (for attention heatmap)
+      - mean visibility
+
+    Call .log() each labelled frame, then .save() at the end.
+    analysis_extended.py reads the resulting JSON.
+    """
+
+    def __init__(self):
+        self._frames = []
+
+    def log(self, frame_num: int, gt: str, fv,
+            predictions: dict, confidences: dict, attention: list = None):
+        """
+        fv            : FeatureVector (used to extract rule-based boundary features)
+        predictions   : {model_name: label_str}
+        confidences   : {model_name: float}  — only CNN and LSTM populate this
+        attention     : list[float] of length WINDOW, from LSTM (or None)
+        """
+        self._frames.append({
+            "frame": frame_num,
+            "gt": gt,
+            "visibility": round(float(fv.mean_visibility), 4),
+            "predictions": predictions,
+            "confidences": {k: round(v, 4) for k, v in confidences.items()},
+            # Key rule-based boundary features
+            "features": {
+                "left_forward_ratio":   round(float(fv.left_foot_forward_ratio), 4),
+                "right_forward_ratio":  round(float(fv.right_foot_forward_ratio), 4),
+                "left_lateral_offset":  round(float(fv.left_foot_lateral_offset), 4),
+                "right_lateral_offset": round(float(fv.right_foot_lateral_offset), 4),
+                "left_swing_vel":       round(float(fv.left_swing_velocity), 4),
+                "right_swing_vel":      round(float(fv.right_swing_velocity), 4),
+                "left_swing_amp":       round(float(fv.left_swing_amplitude), 4),
+                "right_swing_amp":      round(float(fv.right_swing_amplitude), 4),
+                "total_kinetic_energy": round(float(fv.total_kinetic_energy), 4),
+                "hip_stability":        round(float(fv.hip_stability), 4),
+                "moving_joint_count":   round(float(fv.moving_joint_count), 4),
+            },
+            "attention_weights": [round(w, 5) for w in attention] if attention else None,
+        })
+
+    def save(self, path: str):
+        with open(path, "w") as f:
+            json.dump(self._frames, f)
+        labelled = sum(1 for d in self._frames if d["gt"])
+        print(f"\nDetailed log saved → {path}")
+        print(f"  Total frames logged: {len(self._frames)} ({labelled} with GT labels)")
+        print(f"  Run: python analysis_extended.py --log {path}")
+
+    def __len__(self):
+        return len(self._frames)
+
+
 # ── Accuracy vs Latency plot ───────────────────────────────────────────────────
 def plot_accuracy_vs_latency(results: dict, save_path: str = "accuracy_vs_latency.png"):
     """
@@ -197,8 +258,9 @@ def run_benchmark(video_sources, labels_csv: str = None,
     extractor = PoseExtractor()
     engineer  = FeatureEngineer(history=35)
     
-    # We use a shared failure analyzer for the whole batch
+    # We use a shared failure analyzer and detailed logger for the whole batch
     failure_analyser = FailureAnalyser(save_dir="benchmark/batch_failures")
+    detailed_logger  = DetailedLogger()
 
     # Classifiers & Benchmarkers
     classifiers = {"rule_based": RuleBasedClassifier()}
@@ -245,18 +307,33 @@ def run_benchmark(video_sources, labels_csv: str = None,
             gt = gt_map.get(global_frame_num)
 
             predictions = {}
+            confidences = {}
+            attention   = None
+
             for name, clf in classifiers.items():
                 benches[name].start("total")
-                pred = clf(fv, raw_landmarks=pose_frame.landmarks) if name == "cnn" else clf(fv)
+
+                if name == "cnn":
+                    pred, conf = clf.predict_with_details(fv, raw_landmarks=pose_frame.landmarks)
+                    confidences[name] = conf
+                elif name == "lstm":
+                    pred, conf, attn = clf.predict_with_details(fv)
+                    confidences[name] = conf
+                    attention = attn
+                else:
+                    pred = clf(fv)
+
                 benches[name].stop("total")
                 predictions[name] = pred
-                
+
                 # Only record metrics if we have a ground truth label for this frame
                 if gt:
                     all_preds[name].append(pred)
 
             if gt:
                 all_truths.append(gt)
+                detailed_logger.log(global_frame_num, gt, fv,
+                                    predictions, confidences, attention)
 
             # Failure analysis
             failure_analyser.check(frame, predictions, gt, fv.mean_visibility)
@@ -294,6 +371,7 @@ def run_benchmark(video_sources, labels_csv: str = None,
             plot_confusion_matrix(all_truths, preds, name, f"benchmark/cm_{name}.png")
 
         plot_accuracy_vs_latency(results, "benchmark/batch_comparison.png")
+        detailed_logger.save("benchmark/detailed_log.json")
     
     failure_analyser.report()
 
