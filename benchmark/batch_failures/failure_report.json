@@ -1,663 +1,533 @@
 {
   "counts": {
-    "classifier_disagreement": 1402,
-    "misclassification": 1406,
-    "low_confidence": 52
+    "misclassification": 434,
+    "low_confidence": 246
   },
   "cases": [
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "IDLE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712220075.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712220550.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712220706.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712220836.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712220947.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "IDLE",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221068.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221187.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221302.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221411.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221522.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221621.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221755.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712221882.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222000.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222106.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222214.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222328.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222437.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222563.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222674.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222782.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222875.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712222981.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223106.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223225.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223326.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223429.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223527.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
         "misclassification",
         "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "UNCERTAIN",
-        "lstm": "BUFFERING"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223636.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796278144.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
         "misclassification"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
+        "mobilenet": "SHOOT"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223751.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796279147.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
         "misclassification",
         "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "UNCERTAIN",
-        "lstm": "BUFFERING"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223853.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796279339.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712223954.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224059.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "BUFFERING"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224169.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224298.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224409.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224526.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224637.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224751.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224871.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712224997.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225112.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
         "misclassification",
         "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "UNCERTAIN",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225229.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796279526.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
-      ],
-      "preds": {
-        "rule_based": "MOVE",
-        "cnn": "SHOOT",
-        "lstm": "IDLE"
-      },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225357.jpg"
-    },
-    {
-      "reasons": [
-        "classifier_disagreement",
         "misclassification",
         "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "UNCERTAIN",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225549.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796289503.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "PASS",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225672.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796289683.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "PASS",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225792.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796289866.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "PASS",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712225919.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796290215.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
-        "misclassification"
+        "misclassification",
+        "low_confidence"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "PASS",
-        "lstm": "IDLE"
+        "mobilenet": "UNCERTAIN"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712226039.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796290761.jpg"
     },
     {
       "reasons": [
-        "classifier_disagreement",
         "misclassification"
       ],
       "preds": {
-        "rule_based": "MOVE",
-        "cnn": "PASS",
-        "lstm": "IDLE"
+        "mobilenet": "SHOOT"
       },
-      "gt": "IDLE",
-      "file": "benchmark/batch_failures/fail_1776712226160.jpg"
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796290957.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796291143.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796291336.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796291526.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796292677.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796292892.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796293091.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796293284.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796293464.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796293820.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796293994.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796294241.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796294419.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796294636.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796294989.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796295162.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796295363.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796295560.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796295748.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796295931.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796296539.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796296725.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796296916.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796297093.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796297295.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796297491.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796297672.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796297853.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796298050.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796298232.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796298432.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796299144.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796299468.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796299876.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796300406.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796300766.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796301456.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796301669.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "preds": {
+        "mobilenet": "UNCERTAIN"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796303857.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796304053.jpg"
+    },
+    {
+      "reasons": [
+        "misclassification"
+      ],
+      "preds": {
+        "mobilenet": "SHOOT"
+      },
+      "gt": "PASS",
+      "file": "benchmark/batch_failures/fail_1776796304248.jpg"
     }
   ]
 }

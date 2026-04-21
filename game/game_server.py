@@ -4,25 +4,30 @@ import numpy as np
 import os
 import sys
 
-# Ensure parent directory is in path for classifiers
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Ensure parent directories are in path for classifiers
+# Adding both root and 'svm' folder to handle the file locations
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+SVM_DIR = os.path.join(BASE_DIR, 'svm')
+sys.path.append(BASE_DIR)
+sys.path.append(SVM_DIR)
 
 try:
-    from pipeline_mnet import PoseExtractor, FeatureEngineer
-    from classifiers.rule_based import RuleBasedClassifier
-except ImportError:
+    # Adding KEYPOINTS to the import list
+    from pipeline import PoseExtractor, FeatureEngineer, KEYPOINTS
+    from svm_classifier import SVMClassifier
+except ImportError as e:
+    print(f"[WARNING] Import error: {e}")
     PoseExtractor = None
     FeatureEngineer = None
-    RuleBasedClassifier = None
+    SVMClassifier = None
+    KEYPOINTS = None # Add this fallback
 
 W, H = 900, 560 
 GOAL_H, TICK_RATE = 160, 60
 GY1, GY2 = (H - GOAL_H) // 2, (H + GOAL_H) // 2
-# --- FIXED: 0.3s for rotation, 0.5s for grace period ---
 ROTATION_SPEED = 0.3 
 MOVE_GRACE = 0.5 
 GAME_DURATION = 300.0
-# Directions: N, NE, E, SE, S, SW, W, NW
 DIRECTIONS = [4.71, 5.49, 0, 0.785, 1.57, 2.35, 3.14, 3.92]
 
 class GameServer:
@@ -34,23 +39,25 @@ class GameServer:
         self.time_left = GAME_DURATION
         self.clients = [] 
         self.frames = {} 
-        self.processing_pids = set() # Track players currently being processed
+        self.processing_pids = set()
 
-        # Keep per-player CV state so temporal features and cooldown are independent.
+        # Per-player CV state
         self.pose_extractors = {}
         self.feature_engineers = {}
-        self.rule_classifiers = {}
-        self.rule_based_ready = all([PoseExtractor, FeatureEngineer, RuleBasedClassifier])
+        self.svm_classifiers = {}
+        self.svm_ready = all([PoseExtractor, FeatureEngineer, SVMClassifier])
+        
         self.move_deadzone = 0.08
         self.move_joint_activity_min = 0.35
         self.shoot_capture_radius = 45
         self.shoot_cooldown = 0.20
         self.shoot_vel_thresh = 0.30
         self.shoot_amp_thresh = 0.50
-        if self.rule_based_ready:
-            print("[LOG] Rule-Based pipeline ready")
+        
+        if self.svm_ready:
+            print("[LOG] SVM Pipeline ready")
         else:
-            print("[ERROR] Rule-Based pipeline imports missing; defaulting to STOP")
+            print("[ERROR] SVM pipeline imports missing; defaulting to STOP")
         
         self.setup_players(4)
 
@@ -69,7 +76,7 @@ class GameServer:
 
     def process_vision_frame(self, pid, b64_data):
         """CPU-Heavy: Processes frame and returns result."""
-        if not self.rule_based_ready:
+        if not self.svm_ready:
             return pid, "STOP", b64_data
         try:
             header, encoded = b64_data.split(",", 1)
@@ -79,7 +86,9 @@ class GameServer:
             if pid not in self.pose_extractors:
                 self.pose_extractors[pid] = PoseExtractor()
                 self.feature_engineers[pid] = FeatureEngineer(history=35)
-                self.rule_classifiers[pid] = RuleBasedClassifier()
+                # Point to the correct pkl file location
+                model_path = os.path.join(SVM_DIR, "svm_gesture.pkl")
+                self.svm_classifiers[pid] = SVMClassifier(model_path=model_path, confidence_thresh=0.55)
 
             pose_frame = self.pose_extractors[pid].extract(frame, time.perf_counter())
             if pose_frame is None:
@@ -87,32 +96,50 @@ class GameServer:
                 cmd = "STOP"
             else:
                 fv = self.feature_engineers[pid].update(pose_frame)
-                label = self.rule_classifiers[pid](fv)
-
+                
+                # SVM __call__ expects both the FeatureVector and the raw landmarks dict
+                if hasattr(pose_frame, 'landmarks') and isinstance(pose_frame.landmarks, dict):
+                    lm_dict = pose_frame.landmarks
+                else:
+                    # Otherwise, build the dictionary manually from the raw MediaPipe object
+                    lm_dict = {}
+                    for name, idx in KEYPOINTS.items():
+                        lm = pose_frame.raw.landmark[idx]
+                        lm_dict[name] = [lm.x, lm.y, lm.z, lm.visibility]
+                
+                # Pass the feature vector and the correctly formatted dictionary
+                label = self.svm_classifiers[pid](fv, lm_dict)
                 cmd = "STOP"
                 clean_label = str(label).upper().strip()
+                
                 if clean_label == "MOVE":
+                    # Keep magnitude safety rails, though SVM handles most of this now
                     disp_mag = float(np.linalg.norm(fv.hip_displacement))
                     if disp_mag > self.move_deadzone and fv.moving_joint_count >= self.move_joint_activity_min:
                         cmd = "MOVE"
                     else:
-                        label = "IDLE"
+                        label = "IDLE (Sub-thresh)"
                 elif clean_label == "SHOOT":
                     cmd = "SHOOT"
+                elif clean_label == "PASS":
+                    # If you want to treat PASS as a shoot with lower power, add logic here.
+                    # Defaulting to SHOOT behavior for now.
+                    cmd = "SHOOT"
 
-                # Rule-based cooldown can stick on MOVE; force SHOOT if leg swing is strong.
+                # Safety fallback override in case SVM sticks to MOVE during a rapid kick
                 max_sv = max(float(fv.left_swing_velocity), float(fv.right_swing_velocity))
                 max_amp = max(float(fv.left_swing_amplitude), float(fv.right_swing_amplitude))
                 if max_sv > self.shoot_vel_thresh and max_amp > self.shoot_amp_thresh:
                     cmd = "SHOOT"
-                    label = "SHOOT"
+                    label = "SHOOT (Override)"
             
             cv2.putText(frame, f"P{pid}: {label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
             _, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 40])
             out_b64 = "data:image/jpeg;base64," + base64.b64encode(buffer).decode('utf-8')
             
             return pid, cmd, out_b64
-        except:
+        except Exception as e:
+            print(f"[ERROR] Vision processing error for P{pid}: {e}")
             return pid, "STOP", b64_data
 
     async def async_vision_task(self, pid, frame_data):
@@ -134,7 +161,7 @@ class GameServer:
             if cmd == "MOVE": 
                 p['is_moving'] = True
             elif cmd == "STOP": 
-                if p['is_moving']: # Only reset timer if we were actually moving
+                if p['is_moving']: 
                     p['last_move_time'] = time.time()
                 p['is_moving'] = False
             elif cmd == "SHOOT":
@@ -153,7 +180,6 @@ class GameServer:
                 data = json.loads(msg)
                 m_type = data.get('type')
                 
-                # --- PARALLEL CONTROLS: Processed instantly ---
                 if m_type == 'ready':
                     self.setup_players(int(data.get('count', 4)))
                     self.score, self.time_left, self.phase = [0, 0], GAME_DURATION, "playing"
@@ -165,13 +191,12 @@ class GameServer:
                     self.phase = "waiting"; self.score = [0, 0]; self.reset_positions()
                 elif m_type == 'video_frame':
                     pid = int(data['pid'])
-                    # DROPPING FRAMES: If still processing P1, don't queue another P1 frame
                     if pid not in self.processing_pids:
                         asyncio.create_task(self.async_vision_task(pid, data['frame']))
                 elif m_type == 'ping':
                     await ws.send(json.dumps({"type": "pong", "time": data['time']}))
         finally:
-            self.clients.append(ws)
+            self.clients.remove(ws)
 
     def kick(self, p, power):
         angle = DIRECTIONS[p['dir_idx']]
@@ -183,8 +208,6 @@ class GameServer:
         self.time_left -= 1/TICK_RATE
         now = time.time()
         for p in self.players:
-            # --- ARROW ROTATION LOGIC ---
-            # Only rotate if STOPPED and 0.5s has passed since the last MOVE command
             if not p['is_moving'] and (now - p['last_move_time'] >= MOVE_GRACE):
                 if now - p['last_scan'] >= ROTATION_SPEED:
                     p['dir_idx'] = (p['dir_idx'] + 1) % 8
@@ -199,7 +222,6 @@ class GameServer:
             p['x'] += p['vx']; p['y'] += p['vy']
             p['x'], p['y'] = max(25, min(875, p['x'])), max(25, min(535, p['y']))
 
-        # Ball Physics & Goal Check
         if not self.ball['holder']:
             self.ball['x'] += self.ball['vx']; self.ball['y'] += self.ball['vy']
             self.ball['vx'] *= 0.985; self.ball['vy'] *= 0.985
@@ -210,7 +232,6 @@ class GameServer:
                 else: self.ball['vx'] *= -0.8; self.ball['x'] = max(30, min(870, self.ball['x']))
             if self.ball['y'] < 30 or self.ball['y'] > 530: self.ball['vy'] *= -0.8; self.ball['y'] = max(30, min(530, self.ball['y']))
 
-        # Capture
         for p in self.players:
             if math.hypot(self.ball['x'] - p['x'], self.ball['y'] - p['y']) < 40:
                 self.ball['holder'] = p['pid']

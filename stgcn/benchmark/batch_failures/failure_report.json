@@ -1,0 +1,511 @@
+{
+  "counts": {
+    "misclassification": 54,
+    "low_confidence": 4
+  },
+  "cases": [
+    {
+      "video": "shoot_034.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6762,
+      "file": "benchmark/batch_failures/fail_shoot_034.mp4.jpg"
+    },
+    {
+      "video": "shoot_037.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.572,
+      "file": "benchmark/batch_failures/fail_shoot_037.mp4.jpg"
+    },
+    {
+      "video": "move_025.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "MOVE",
+      "confidence": 0.6036,
+      "file": "benchmark/batch_failures/fail_move_025.mp4.jpg"
+    },
+    {
+      "video": "shoot_039.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5127,
+      "file": "benchmark/batch_failures/fail_shoot_039.mp4.jpg"
+    },
+    {
+      "video": "pass_018.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5793,
+      "file": "benchmark/batch_failures/fail_pass_018.mp4.jpg"
+    },
+    {
+      "video": "shoot_003.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5387,
+      "file": "benchmark/batch_failures/fail_shoot_003.mp4.jpg"
+    },
+    {
+      "video": "pass_039.mp4",
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "pred": "UNCERTAIN",
+      "gt": "PASS",
+      "confidence": 0.4929,
+      "file": "benchmark/batch_failures/fail_pass_039.mp4.jpg"
+    },
+    {
+      "video": "pass_024.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.6365,
+      "file": "benchmark/batch_failures/fail_pass_024.mp4.jpg"
+    },
+    {
+      "video": "shoot_021.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.567,
+      "file": "benchmark/batch_failures/fail_shoot_021.mp4.jpg"
+    },
+    {
+      "video": "shoot_018.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.7399,
+      "file": "benchmark/batch_failures/fail_shoot_018.mp4.jpg"
+    },
+    {
+      "video": "shoot_019.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5277,
+      "file": "benchmark/batch_failures/fail_shoot_019.mp4.jpg"
+    },
+    {
+      "video": "shoot_035.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6814,
+      "file": "benchmark/batch_failures/fail_shoot_035.mp4.jpg"
+    },
+    {
+      "video": "pass_020.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.9425,
+      "file": "benchmark/batch_failures/fail_pass_020.mp4.jpg"
+    },
+    {
+      "video": "pass_023.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.8177,
+      "file": "benchmark/batch_failures/fail_pass_023.mp4.jpg"
+    },
+    {
+      "video": "shoot_006.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5456,
+      "file": "benchmark/batch_failures/fail_shoot_006.mp4.jpg"
+    },
+    {
+      "video": "move_022.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "MOVE",
+      "confidence": 0.6608,
+      "file": "benchmark/batch_failures/fail_move_022.mp4.jpg"
+    },
+    {
+      "video": "move_001.mp4",
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "pred": "UNCERTAIN",
+      "gt": "MOVE",
+      "confidence": 0.4967,
+      "file": "benchmark/batch_failures/fail_move_001.mp4.jpg"
+    },
+    {
+      "video": "shoot_028.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.7015,
+      "file": "benchmark/batch_failures/fail_shoot_028.mp4.jpg"
+    },
+    {
+      "video": "pass_035.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.6961,
+      "file": "benchmark/batch_failures/fail_pass_035.mp4.jpg"
+    },
+    {
+      "video": "shoot_010.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6572,
+      "file": "benchmark/batch_failures/fail_shoot_010.mp4.jpg"
+    },
+    {
+      "video": "pass_001.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5402,
+      "file": "benchmark/batch_failures/fail_pass_001.mp4.jpg"
+    },
+    {
+      "video": "move_005.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "MOVE",
+      "confidence": 0.6249,
+      "file": "benchmark/batch_failures/fail_move_005.mp4.jpg"
+    },
+    {
+      "video": "pass_014.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.6086,
+      "file": "benchmark/batch_failures/fail_pass_014.mp4.jpg"
+    },
+    {
+      "video": "pass_031.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.7228,
+      "file": "benchmark/batch_failures/fail_pass_031.mp4.jpg"
+    },
+    {
+      "video": "pass_041.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.5795,
+      "file": "benchmark/batch_failures/fail_pass_041.mp4.jpg"
+    },
+    {
+      "video": "shoot_033.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6294,
+      "file": "benchmark/batch_failures/fail_shoot_033.mp4.jpg"
+    },
+    {
+      "video": "pass_030.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5363,
+      "file": "benchmark/batch_failures/fail_pass_030.mp4.jpg"
+    },
+    {
+      "video": "move_027.mp4",
+      "reasons": [
+        "misclassification",
+        "low_confidence"
+      ],
+      "pred": "UNCERTAIN",
+      "gt": "MOVE",
+      "confidence": 0.4753,
+      "file": "benchmark/batch_failures/fail_move_027.mp4.jpg"
+    },
+    {
+      "video": "shoot_032.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6626,
+      "file": "benchmark/batch_failures/fail_shoot_032.mp4.jpg"
+    },
+    {
+      "video": "shoot_029.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6402,
+      "file": "benchmark/batch_failures/fail_shoot_029.mp4.jpg"
+    },
+    {
+      "video": "pass_043.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.5859,
+      "file": "benchmark/batch_failures/fail_pass_043.mp4.jpg"
+    },
+    {
+      "video": "pass_016.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.5618,
+      "file": "benchmark/batch_failures/fail_pass_016.mp4.jpg"
+    },
+    {
+      "video": "shoot_002.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5911,
+      "file": "benchmark/batch_failures/fail_shoot_002.mp4.jpg"
+    },
+    {
+      "video": "shoot_038.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5997,
+      "file": "benchmark/batch_failures/fail_shoot_038.mp4.jpg"
+    },
+    {
+      "video": "shoot_022.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5768,
+      "file": "benchmark/batch_failures/fail_shoot_022.mp4.jpg"
+    },
+    {
+      "video": "pass_015.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5328,
+      "file": "benchmark/batch_failures/fail_pass_015.mp4.jpg"
+    },
+    {
+      "video": "shoot_016.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6163,
+      "file": "benchmark/batch_failures/fail_shoot_016.mp4.jpg"
+    },
+    {
+      "video": "move_015.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "MOVE",
+      "confidence": 0.6909,
+      "file": "benchmark/batch_failures/fail_move_015.mp4.jpg"
+    },
+    {
+      "video": "shoot_020.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5211,
+      "file": "benchmark/batch_failures/fail_shoot_020.mp4.jpg"
+    },
+    {
+      "video": "pass_019.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5046,
+      "file": "benchmark/batch_failures/fail_pass_019.mp4.jpg"
+    },
+    {
+      "video": "shoot_040.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6432,
+      "file": "benchmark/batch_failures/fail_shoot_040.mp4.jpg"
+    },
+    {
+      "video": "pass_042.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "SHOOT",
+      "gt": "PASS",
+      "confidence": 0.5038,
+      "file": "benchmark/batch_failures/fail_pass_042.mp4.jpg"
+    },
+    {
+      "video": "idle_01.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "IDLE",
+      "confidence": 0.7358,
+      "file": "benchmark/batch_failures/fail_idle_01.mp4.jpg"
+    },
+    {
+      "video": "pass_010.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.6601,
+      "file": "benchmark/batch_failures/fail_pass_010.mp4.jpg"
+    },
+    {
+      "video": "move_004.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "MOVE",
+      "confidence": 0.514,
+      "file": "benchmark/batch_failures/fail_move_004.mp4.jpg"
+    },
+    {
+      "video": "shoot_001.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.518,
+      "file": "benchmark/batch_failures/fail_shoot_001.mp4.jpg"
+    },
+    {
+      "video": "shoot_015.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5701,
+      "file": "benchmark/batch_failures/fail_shoot_015.mp4.jpg"
+    },
+    {
+      "video": "pass_033.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "MOVE",
+      "gt": "PASS",
+      "confidence": 0.9286,
+      "file": "benchmark/batch_failures/fail_pass_033.mp4.jpg"
+    },
+    {
+      "video": "shoot_009.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.6756,
+      "file": "benchmark/batch_failures/fail_shoot_009.mp4.jpg"
+    },
+    {
+      "video": "shoot_030.mp4",
+      "reasons": [
+        "misclassification"
+      ],
+      "pred": "PASS",
+      "gt": "SHOOT",
+      "confidence": 0.5856,
+      "file": "benchmark/batch_failures/fail_shoot_030.mp4.jpg"
+    }
+  ]
+}
