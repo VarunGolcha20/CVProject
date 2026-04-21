@@ -23,3 +23,6 @@ videos.zip
 benchmark/batch_failuers/*.jpg
 benchmark/batch_failures/fail_*.jpg
 *.zip
+*.png
+*.jpg
+*.jpeg
