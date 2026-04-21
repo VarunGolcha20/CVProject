@@ -8,9 +8,12 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 try:
-    from classifiers.mobilenet_classifier import PretrainedImageClassifier
+    from pipeline_mnet import PoseExtractor, FeatureEngineer
+    from classifiers.rule_based import RuleBasedClassifier
 except ImportError:
-    PretrainedImageClassifier = None
+    PoseExtractor = None
+    FeatureEngineer = None
+    RuleBasedClassifier = None
 
 W, H = 900, 560 
 GOAL_H, TICK_RATE = 160, 60
@@ -33,13 +36,21 @@ class GameServer:
         self.frames = {} 
         self.processing_pids = set() # Track players currently being processed
 
-        model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "models", "mobilenet_gesture.pt"))
-        try:
-            self.mnet_clf = PretrainedImageClassifier(model_path=model_path) if PretrainedImageClassifier else None
-            print(f"[LOG] MobileNet Loaded: {model_path}")
-        except Exception as e:
-            print(f"[ERROR] MobileNet Load Failed: {e}")
-            self.mnet_clf = None
+        # Keep per-player CV state so temporal features and cooldown are independent.
+        self.pose_extractors = {}
+        self.feature_engineers = {}
+        self.rule_classifiers = {}
+        self.rule_based_ready = all([PoseExtractor, FeatureEngineer, RuleBasedClassifier])
+        self.move_deadzone = 0.08
+        self.move_joint_activity_min = 0.35
+        self.shoot_capture_radius = 45
+        self.shoot_cooldown = 0.20
+        self.shoot_vel_thresh = 0.30
+        self.shoot_amp_thresh = 0.50
+        if self.rule_based_ready:
+            print("[LOG] Rule-Based pipeline ready")
+        else:
+            print("[ERROR] Rule-Based pipeline imports missing; defaulting to STOP")
         
         self.setup_players(4)
 
@@ -58,19 +69,44 @@ class GameServer:
 
     def process_vision_frame(self, pid, b64_data):
         """CPU-Heavy: Processes frame and returns result."""
-        if not self.mnet_clf: return pid, "STOP", b64_data
+        if not self.rule_based_ready:
+            return pid, "STOP", b64_data
         try:
             header, encoded = b64_data.split(",", 1)
             nparr = np.frombuffer(base64.b64decode(encoded), np.uint8)
             frame = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-            label = self.mnet_clf(frame)
-            
-            cmd = "STOP"
-            clean_label = str(label).lower().strip()
-            if clean_label == "move": cmd = "MOVE"
-            elif clean_label == "shoot": cmd = "SHOOT"
-            elif clean_label == "pass": cmd = "PASS"
 
+            if pid not in self.pose_extractors:
+                self.pose_extractors[pid] = PoseExtractor()
+                self.feature_engineers[pid] = FeatureEngineer(history=35)
+                self.rule_classifiers[pid] = RuleBasedClassifier()
+
+            pose_frame = self.pose_extractors[pid].extract(frame, time.perf_counter())
+            if pose_frame is None:
+                label = "OCCLUDED"
+                cmd = "STOP"
+            else:
+                fv = self.feature_engineers[pid].update(pose_frame)
+                label = self.rule_classifiers[pid](fv)
+
+                cmd = "STOP"
+                clean_label = str(label).upper().strip()
+                if clean_label == "MOVE":
+                    disp_mag = float(np.linalg.norm(fv.hip_displacement))
+                    if disp_mag > self.move_deadzone and fv.moving_joint_count >= self.move_joint_activity_min:
+                        cmd = "MOVE"
+                    else:
+                        label = "IDLE"
+                elif clean_label == "SHOOT":
+                    cmd = "SHOOT"
+
+                # Rule-based cooldown can stick on MOVE; force SHOOT if leg swing is strong.
+                max_sv = max(float(fv.left_swing_velocity), float(fv.right_swing_velocity))
+                max_amp = max(float(fv.left_swing_amplitude), float(fv.right_swing_amplitude))
+                if max_sv > self.shoot_vel_thresh and max_amp > self.shoot_amp_thresh:
+                    cmd = "SHOOT"
+                    label = "SHOOT"
+            
             cv2.putText(frame, f"P{pid}: {label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
             _, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 40])
             out_b64 = "data:image/jpeg;base64," + base64.b64encode(buffer).decode('utf-8')
@@ -101,8 +137,14 @@ class GameServer:
                 if p['is_moving']: # Only reset timer if we were actually moving
                     p['last_move_time'] = time.time()
                 p['is_moving'] = False
-            elif cmd == "SHOOT" and self.ball['holder'] == p['pid']: self.kick(p, 26)
-            elif cmd == "PASS" and self.ball['holder'] == p['pid']: self.kick(p, 14)
+            elif cmd == "SHOOT":
+                now = time.time()
+                dist_to_ball = math.hypot(self.ball['x'] - p['x'], self.ball['y'] - p['y'])
+                can_shoot = self.ball['holder'] == p['pid'] or dist_to_ball <= self.shoot_capture_radius
+                if can_shoot and (now - p['kick_cd']) >= self.shoot_cooldown:
+                    self.ball['holder'] = p['pid']
+                    p['kick_cd'] = now
+                    self.kick(p, 26)
 
     async def handler(self, ws):
         self.clients.append(ws)
